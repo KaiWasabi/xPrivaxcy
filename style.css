@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  height: 100vh;
+  font-family: "Anonymous Pro", monospace;
+  text-align: center;
+  background-color: #140d09;
+}
+
+h1 {
+  font-size: 6vw;
+  color: #c1bba0;
+}
+h1:before {
+  content: attr(data-before);
+  word-break: break-all;
+  opacity: 0.5;
+}
+h1:after {
+  content: attr(data-after);
+  word-break: break-all;
+  opacity: 0.5;
+}
