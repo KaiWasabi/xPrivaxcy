@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>xPrivacy</title>
-  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet"><link rel="stylesheet" href="./style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<h1></h1>
-<div class="button" onclick="init('Privacy is a fundemental human right')">Again</div>
-<!-- partial -->
+
+
+
+<div id="container">
+	<span id="text1"></span>
+	<span id="text2"></span>
+</div>
+
+<svg id="filters">
+	<defs>
+		<filter id="threshold">
+			<feColorMatrix in="SourceGraphic"
+					type="matrix"
+					values="1 0 0 0 0
+									0 1 0 0 0
+									0 0 1 0 0
+									0 0 0 255 -140" />
+		</filter>
+	</defs>
+</svg>
   <script  src="./script.js"></script>
 
 </body>
