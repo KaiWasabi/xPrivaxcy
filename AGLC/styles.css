@@ -180,3 +180,33 @@ footer p {
     color: #fff;
     cursor: pointer;
 }
+
+/* Placeholder Styling */
+input::placeholder {
+    color: #888;
+    opacity: 1; /* Ensures placeholder is visible in Firefox */
+}
+
+input:-ms-input-placeholder { /* IE 10-11 */
+    color: #888;
+}
+
+input::-ms-input-placeholder { /* Edge */
+    color: #888;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    input[type="text"], input[type="url"], input[type="date"], select {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

@@ -81,11 +81,12 @@ function generateCitation() {
     } else if (sourceType === 'website') {
         const author = document.getElementById('website-author').value.trim();
         const title = document.getElementById('website-title').value.trim();
+        const websiteName = document.getElementById('website-name').value.trim();  // Added Website Name field
         const url = document.getElementById('website-url').value.trim();
         const accessDate = document.getElementById('website-access-date').value.trim();
 
-        if (title && url && accessDate) {
-            citation = `${author ? author + ', ' : ''}'${title}', *Website Name* (${new Date(accessDate).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}) <${url}>.`;
+        if (title && websiteName && url && accessDate) {  // Include websiteName in the condition
+            citation = `${author ? author + ', ' : ''}'${title}', *${websiteName}* (${new Date(accessDate).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}) <${url}>.`;
         }
     }
 
