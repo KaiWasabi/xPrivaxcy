@@ -259,8 +259,15 @@ document.addEventListener('DOMContentLoaded', function () {
     window.exportCitations = function () {
         const citations = JSON.parse(localStorage.getItem('citations')) || [];
         if (citations.length > 0) {
-            const citationText = citations.join('\n\n'); // Separate citations by double newlines
-            const blob = new Blob([citationText], { type: 'text/plain' });
+            // Create plain text citations by removing HTML tags
+            const plainTextCitations = citations.map(citation => {
+                return citation
+                    .replace(/<\/?i>/g, '')   // Remove <i> and </i>
+                    .replace(/<\/?b>/g, '')   // Remove <b> and </b>
+                    .replace(/<\/?u>/g, '');  // Remove <u> and </u>
+            }).join('\n\n'); // Separate citations by double newlines
+    
+            const blob = new Blob([plainTextCitations], { type: 'text/plain' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = 'citations.txt';
@@ -269,6 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('No citations to export.');
         }
     };
+    
 
     // Clear saved citations
     window.clearCitations = function () {
