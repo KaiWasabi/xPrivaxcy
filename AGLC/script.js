@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize Flatpickr for date selection with Australian format
-    flatpickr("#website-access-date", {
+    flatpickr("#website-access-date, #newspaper-date, #conference-date", {
         dateFormat: "d/m/Y"
     });
 
@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Initialize Pinpoint Fields toggle
-    togglePinpoint('case-pinpoint-toggle', 'case-pinpoint-fields');
+    togglePinpoint('case-domestic-pinpoint-toggle', 'case-domestic-pinpoint-fields');
+    togglePinpoint('case-international-pinpoint-toggle', 'case-international-pinpoint-fields');
     togglePinpoint('book-pinpoint-toggle', 'book-pinpoint-fields');
     togglePinpoint('journal-pinpoint-toggle', 'journal-pinpoint-fields');
     togglePinpoint('legislation-pinpoint-toggle', 'legislation-pinpoint-fields');
@@ -49,32 +50,45 @@ document.addEventListener('DOMContentLoaded', function () {
         const sourceType = document.getElementById('source-type').value;
         let citation = '';
 
-        if (sourceType === 'case') {
-            const caseName = document.getElementById('case-name').value.trim();
-            const reportSeries = document.getElementById('case-report').value.trim();
-            const year = document.getElementById('case-year').value.trim();
-            const volume = document.getElementById('case-volume').value.trim();
-            const startingPage = document.getElementById('case-page').value.trim();
-            const court = document.getElementById('case-court').value.trim();
-            const pinpointPage = document.getElementById('case-pinpoint-page').value.trim();
-            const pinpointParagraph = document.getElementById('case-pinpoint-paragraph').value.trim();
+        if (sourceType === 'case-domestic') {
+            const caseName = document.getElementById('case-domestic-name').value.trim();
+            const reportSeries = document.getElementById('case-domestic-report').value.trim();
+            const year = document.getElementById('case-domestic-year').value.trim();
+            const volume = document.getElementById('case-domestic-volume').value.trim();
+            const startingPage = document.getElementById('case-domestic-page').value.trim();
+            const court = document.getElementById('case-domestic-court').value.trim();
+            const pinpointPage = document.getElementById('case-domestic-pinpoint-page').value.trim();
+            const pinpointParagraph = document.getElementById('case-domestic-pinpoint-paragraph').value.trim();
 
-            let includeCourt = true;
-            const reportSeriesLower = reportSeries.toLowerCase();
-
-            if (reportSeriesLower.includes('clr') || reportSeriesLower.includes('nswlr')) {
-                includeCourt = false;
-            }
-
-            if (caseName && reportSeries && year && volume && startingPage) {
-                citation = `${caseName} (${year}) ${volume} ${reportSeries} ${startingPage}`;
-                if (document.getElementById('case-pinpoint-toggle').checked) {
+            if (caseName && reportSeries && year && volume && startingPage && court) {
+                citation = `<i>${caseName}</i> (${year}) ${volume} <b>${reportSeries}</b> ${startingPage} (${court})`;
+                if (document.getElementById('case-domestic-pinpoint-toggle').checked) {
                     if (pinpointPage) citation += `, ${pinpointPage}`;
                     if (pinpointParagraph) citation += ` [${pinpointParagraph}]`;
                 }
-                if (includeCourt && court) {
-                    citation += ` (${court})`;
+                citation += '.';
+            }
+        } else if (sourceType === 'case-international') {
+            const caseName = document.getElementById('case-international-name').value.trim();
+            const reportSeries = document.getElementById('case-international-report').value.trim();
+            const year = document.getElementById('case-international-year').value.trim();
+            const volume = document.getElementById('case-international-volume').value.trim();
+            const startingPage = document.getElementById('case-international-page').value.trim();
+            const court = document.getElementById('case-international-court').value.trim();
+            const pinpointPage = document.getElementById('case-international-pinpoint-page').value.trim();
+            const pinpointParagraph = document.getElementById('case-international-pinpoint-paragraph').value.trim();
+
+            if (caseName && reportSeries && year && court) {
+                citation = `<i>${caseName}</i> (${year})`;
+                if (volume) citation += ` ${volume}`;
+                if (reportSeries) citation += ` <b>${reportSeries}</b>`;
+                if (startingPage) citation += ` ${startingPage}`;
+                citation += ` (${court})`;
+                if (document.getElementById('case-international-pinpoint-toggle').checked) {
+                    if (pinpointPage) citation += `, ${pinpointPage}`;
+                    if (pinpointParagraph) citation += ` [${pinpointParagraph}]`;
                 }
+                citation += '.';
             }
         } else if (sourceType === 'book') {
             const author = document.getElementById('book-author').value.trim();
@@ -85,11 +99,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const pinpointPage = document.getElementById('book-pinpoint-page').value.trim();
 
             if (author && title && year && publisher) {
-                citation = `${author}, *${title}* (${edition ? edition + ' ed, ' : ''}${publisher}, ${year})`;
+                citation = `${author}, <i>${title}</i> (${edition ? edition + ' ed, ' : ''}${publisher}, ${year})`;
                 if (document.getElementById('book-pinpoint-toggle').checked && pinpointPage) {
                     citation += ` ${pinpointPage}`;
                 }
-                citation += `.`;
+                citation += '.';
             }
         } else if (sourceType === 'journal') {
             const author = document.getElementById('journal-author').value.trim();
@@ -101,11 +115,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const pinpointPage = document.getElementById('journal-pinpoint-page').value.trim();
 
             if (author && title && journalName && volume && year && startingPage) {
-                citation = `${author}, '${title}' (${year}) ${volume} *${journalName}* ${startingPage}`;
+                citation = `${author}, '${title}' (${year}) ${volume} <i>${journalName}</i> ${startingPage}`;
                 if (document.getElementById('journal-pinpoint-toggle').checked && pinpointPage) {
                     citation += `, ${pinpointPage}`;
                 }
-                citation += `.`;
+                citation += '.';
             }
         } else if (sourceType === 'legislation') {
             const title = document.getElementById('legislation-title').value.trim();
@@ -120,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (pinpointSection) citation += ` s ${pinpointSection}`;
                     if (pinpointSubsection) citation += `(${pinpointSubsection})`;
                 }
-                citation += `.`;
+                citation += '.';
             }
         } else if (sourceType === 'website') {
             const author = document.getElementById('website-author').value.trim();
@@ -130,23 +144,66 @@ document.addEventListener('DOMContentLoaded', function () {
             const accessDate = document.getElementById('website-access-date').value.trim();
 
             if (title && websiteName && url && accessDate) {
-                const [day, month, year] = accessDate.split('/');
-                const formattedDate = new Date(`${year}-${month}-${day}`);
+                citation = `${author ? author + ', ' : ''}'${title}', <i>${websiteName}</i> (${accessDate}) <${url}>.`;
+            }
+        } else if (sourceType === 'newspaper') {
+            const author = document.getElementById('newspaper-author').value.trim();
+            const title = document.getElementById('newspaper-title').value.trim();
+            const newspaperName = document.getElementById('newspaper-name').value.trim();
+            const date = document.getElementById('newspaper-date').value.trim();
+            const page = document.getElementById('newspaper-page').value.trim();
 
-                if (!isNaN(formattedDate)) {
-                    citation = `${author ? author + ', ' : ''}'${title}', *${websiteName}* (${formattedDate.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}) <${url}>.`;
-                } else {
-                    citation = `${author ? author + ', ' : ''}'${title}', *${websiteName}* (Invalid Date) <${url}>.`;
-                }
+            if (title && newspaperName && date) {
+                citation = `${author ? author + ', ' : ''}'${title}', <i>${newspaperName}</i> (${date})${page ? ', ' + page : ''}.`;
+            }
+        } else if (sourceType === 'conference-paper') {
+            const author = document.getElementById('conference-author').value.trim();
+            const title = document.getElementById('conference-title').value.trim();
+            const conferenceName = document.getElementById('conference-name').value.trim();
+            const location = document.getElementById('conference-location').value.trim();
+            const date = document.getElementById('conference-date').value.trim();
+            const pages = document.getElementById('conference-pages').value.trim();
+
+            if (author && title && conferenceName && date) {
+                citation = `${author}, '${title}' in <i>${conferenceName}</i> (${location ? location + ', ' : ''}${date})${pages ? ', ' + pages : ''}.`;
+            }
+        } else if (sourceType === 'thesis') {
+            const author = document.getElementById('thesis-author').value.trim();
+            const title = document.getElementById('thesis-title').value.trim();
+            const type = document.getElementById('thesis-type').value.trim();
+            const university = document.getElementById('thesis-university').value.trim();
+            const year = document.getElementById('thesis-year').value.trim();
+
+            if (author && title && type && university && year) {
+                citation = `${author}, <i>${title}</i> (${type}, ${university}, ${year}).`;
+            }
+        } else if (sourceType === 'report') {
+            const author = document.getElementById('report-author').value.trim();
+            const title = document.getElementById('report-title').value.trim();
+            const organization = document.getElementById('report-organization').value.trim();
+            const year = document.getElementById('report-year').value.trim();
+            const url = document.getElementById('report-url').value.trim();
+
+            if (title && organization && year) {
+                citation = `${author ? author + ', ' : ''}<i>${title}</i> (${organization}, ${year})${url ? ', ' + url : ''}.`;
+            }
+        } else if (sourceType === 'encyclopedia') {
+            const title = document.getElementById('encyclopedia-title').value.trim();
+            const name = document.getElementById('encyclopedia-name').value.trim();
+            const edition = document.getElementById('encyclopedia-edition').value.trim();
+            const year = document.getElementById('encyclopedia-year').value.trim();
+
+            if (title && name && year) {
+                citation = `${title}, <i>${name}</i> (${edition ? edition + ' ed, ' : ''}${year}).`;
             }
         }
 
-        document.getElementById('generated-citation').textContent = citation;
+        document.getElementById('generated-citation').innerHTML = citation;
     };
 
     // Save the generated citation
     window.saveCitation = function () {
-        const citation = document.getElementById('generated-citation').textContent;
+        const citation = document.getElementById('generated-citation').innerHTML;
         if (citation && citation.trim() !== "") {
             let citations = JSON.parse(localStorage.getItem('citations')) || [];
             citations.push(citation); // Add a new citation
@@ -159,29 +216,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Display saved citations
     function displaySavedCitations() {
         const citations = JSON.parse(localStorage.getItem('citations')) || [];
         const citationList = document.getElementById('citation-list');
         citationList.innerHTML = '';
-
+    
         citations.forEach((citation, index) => {
             const li = document.createElement('li');
-            li.textContent = citation;
-
+    
+            const citationText = document.createElement('span');
+            citationText.innerHTML = citation; // Use innerHTML to render HTML tags properly
+    
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.className = 'delete-button';
             deleteButton.onclick = function () {
                 deleteCitation(index);
             };
-
+    
+            li.appendChild(citationText);
             li.appendChild(deleteButton);
-            li.setAttribute('draggable', 'true');
-            li.addEventListener('dragstart', handleDragStart, false);
-            li.addEventListener('dragover', handleDragOver, false);
-            li.addEventListener('drop', handleDrop, false);
-
             citationList.appendChild(li);
         });
     }
@@ -189,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Clear form fields after saving
     function clearForm() {
         document.getElementById('citation-form').reset();
-        document.getElementById('generated-citation').textContent = '';
+        document.getElementById('generated-citation').innerHTML = '';
         hideAllFields();
     }
 
@@ -201,36 +255,12 @@ document.addEventListener('DOMContentLoaded', function () {
         displaySavedCitations();
     }
 
-    // Drag and Drop functionality for reordering citations
-    let draggedItem = null;
-
-    function handleDragStart(e) {
-        draggedItem = this;
-        setTimeout(() => this.style.display = 'none', 0);
-    }
-
-    function handleDragOver(e) {
-        e.preventDefault();
-    }
-
-    function handleDrop(e) {
-        e.preventDefault();
-        if (draggedItem !== this) {
-            const citations = JSON.parse(localStorage.getItem('citations')) || [];
-            const draggedIndex = [...this.parentNode.children].indexOf(draggedItem);
-            const targetIndex = [...this.parentNode.children].indexOf(this);
-
-            citations.splice(targetIndex, 0, citations.splice(draggedIndex, 1)[0]);
-            localStorage.setItem('citations', JSON.stringify(citations));
-            displaySavedCitations();
-        }
-    }
-
-    // Export saved citations as a text file
+    // Export saved citations as a .txt file
     window.exportCitations = function () {
         const citations = JSON.parse(localStorage.getItem('citations')) || [];
         if (citations.length > 0) {
-            const blob = new Blob([citations.join('\n')], { type: 'text/plain' });
+            const citationText = citations.join('\n\n'); // Separate citations by double newlines
+            const blob = new Blob([citationText], { type: 'text/plain' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = 'citations.txt';

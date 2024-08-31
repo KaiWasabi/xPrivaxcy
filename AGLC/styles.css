@@ -79,11 +79,6 @@ button {
     margin-bottom: 20px;
 }
 
-#citation-list {
-    list-style: none;
-    padding-left: 0;
-}
-
 #citation-list li {
     background-color: #f8f9fa;
     border: 1px solid #ced4da;
@@ -91,9 +86,30 @@ button {
     margin-bottom: 10px;
     border-radius: 4px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Keeps the delete button on the right */
+    align-items: flex-start; /* Aligns content to the top to avoid centering issues */
+    flex-wrap: nowrap; /* Prevents the flex items (delete button and citation) from wrapping separately */
+    gap: 10px; /* Adds space between the citation text and the delete button */
 }
+
+#citation-list li > span {
+    flex-grow: 1; /* Allows the citation text to take up as much space as needed */
+    word-wrap: break-word; /* Wraps long words within the citation text */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Red */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
 
 .clear {
     background-color: #dc3545;
@@ -201,4 +217,9 @@ footer a:hover {
 
 #export-citations:hover {
     background-color: #0056b3;
+}
+
+/* Hide all citation fields initially */
+.citation-fields {
+    display: none;
 }

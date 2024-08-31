@@ -6,7 +6,7 @@
     <title>Kai's AGLC Citation Generator</title>
     <meta name="google-adsense-account" content="ca-pub-3578807727190103">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> <!-- Added Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> <!-- Flatpickr CSS -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3578807727190103"
      crossorigin="anonymous"></script>
 </head>
@@ -20,43 +20,82 @@
             <label for="source-type">Source Type <span class="required">*</span>:</label>
             <select id="source-type" name="source-type" required>
                 <option value="" disabled selected>Select a Source Type</option>
-                <option value="case">Case</option>
+                <option value="case-domestic">Domestic Case (Australian)</option>
+                <option value="case-international">International Case</option>
                 <option value="book">Book</option>
                 <option value="journal">Journal Article</option>
                 <option value="legislation">Legislation</option>
                 <option value="website">Website</option>
+                <option value="newspaper">Newspaper Article</option>
+                <option value="conference-paper">Conference Paper</option>
+                <option value="thesis">Thesis/Dissertation</option>
+                <option value="report">Report</option>
+                <option value="encyclopedia">Encyclopedia/Dictionary Entry</option>
             </select>
 
-            <!-- Case Fields -->
-            <div id="case-fields" class="citation-fields">
-                <label for="case-name">Case Name <span class="required">*</span>:</label>
-                <input type="text" id="case-name" name="case-name" required>
+            <!-- Domestic Case Fields (Australian) -->
+            <div id="case-domestic-fields" class="citation-fields">
+                <label for="case-domestic-name">Case Name <span class="required">*</span>:</label>
+                <input type="text" id="case-domestic-name" name="case-domestic-name" required>
 
-                <label for="case-report">Report Series <span class="required">*</span>:</label>
-                <input type="text" id="case-report" name="case-report" required>
+                <label for="case-domestic-report">Report Series <span class="required">*</span>:</label>
+                <input type="text" id="case-domestic-report" name="case-domestic-report" required>
 
-                <label for="case-year">Year <span class="required">*</span>:</label>
-                <input type="text" id="case-year" name="case-year" required>
+                <label for="case-domestic-year">Year <span class="required">*</span>:</label>
+                <input type="text" id="case-domestic-year" name="case-domestic-year" required>
 
-                <label for="case-volume">Volume <span class="required">*</span>:</label>
-                <input type="text" id="case-volume" name="case-volume" required>
+                <label for="case-domestic-volume">Volume <span class="required">*</span>:</label>
+                <input type="text" id="case-domestic-volume" name="case-domestic-volume" required>
 
-                <label for="case-page">Starting Page <span class="required">*</span>:</label>
-                <input type="text" id="case-page" name="case-page" required>
+                <label for="case-domestic-page">Starting Page <span class="required">*</span>:</label>
+                <input type="text" id="case-domestic-page" name="case-domestic-page" required>
 
-                <label for="case-court">Court (if required):</label>
-                <input type="text" id="case-court" name="case-court">
+                <label for="case-domestic-court">Court <span class="required">*</span>:</label>
+                <input type="text" id="case-domestic-court" name="case-domestic-court" required>
 
                 <label>
-                    <input type="checkbox" id="case-pinpoint-toggle"> Add Pinpoint Reference
+                    <input type="checkbox" id="case-domestic-pinpoint-toggle"> Add Pinpoint Reference
                 </label>
 
-                <div id="case-pinpoint-fields" class="citation-fields">
-                    <label for="case-pinpoint-page">Pinpoint Page:</label>
-                    <input type="text" id="case-pinpoint-page" name="case-pinpoint-page">
+                <div id="case-domestic-pinpoint-fields" class="citation-fields">
+                    <label for="case-domestic-pinpoint-page">Pinpoint Page:</label>
+                    <input type="text" id="case-domestic-pinpoint-page" name="case-domestic-pinpoint-page">
 
-                    <label for="case-pinpoint-paragraph">Pinpoint Paragraph:</label>
-                    <input type="text" id="case-pinpoint-paragraph" name="case-pinpoint-paragraph">
+                    <label for="case-domestic-pinpoint-paragraph">Pinpoint Paragraph:</label>
+                    <input type="text" id="case-domestic-pinpoint-paragraph" name="case-domestic-pinpoint-paragraph">
+                </div>
+            </div>
+
+            <!-- International Case Fields -->
+            <div id="case-international-fields" class="citation-fields">
+                <label for="case-international-name">Case Name <span class="required">*</span>:</label>
+                <input type="text" id="case-international-name" name="case-international-name" required>
+
+                <label for="case-international-report">Report Series <span class="required">*</span>:</label>
+                <input type="text" id="case-international-report" name="case-international-report" required>
+
+                <label for="case-international-year">Year <span class="required">*</span>:</label>
+                <input type="text" id="case-international-year" name="case-international-year" required>
+
+                <label for="case-international-volume">Volume:</label>
+                <input type="text" id="case-international-volume" name="case-international-volume">
+
+                <label for="case-international-page">Starting Page:</label>
+                <input type="text" id="case-international-page" name="case-international-page">
+
+                <label for="case-international-court">Court/Tribunal <span class="required">*</span>:</label>
+                <input type="text" id="case-international-court" name="case-international-court" required>
+
+                <label>
+                    <input type="checkbox" id="case-international-pinpoint-toggle"> Add Pinpoint Reference
+                </label>
+
+                <div id="case-international-pinpoint-fields" class="citation-fields">
+                    <label for="case-international-pinpoint-page">Pinpoint Page:</label>
+                    <input type="text" id="case-international-pinpoint-page" name="case-international-pinpoint-page">
+
+                    <label for="case-international-pinpoint-paragraph">Pinpoint Paragraph:</label>
+                    <input type="text" id="case-international-pinpoint-paragraph" name="case-international-pinpoint-paragraph">
                 </div>
             </div>
 
@@ -156,7 +195,97 @@
                 <input type="url" id="website-url" name="website-url" required>
 
                 <label for="website-access-date">Access Date <span class="required">*</span>:</label>
-                <input type="text" id="website-access-date" placeholder="Select date" required>
+                <input type="text" id="website-access-date" name="website-access-date" placeholder="Select date" required>
+            </div>
+
+            <!-- Newspaper Article Fields -->
+            <div id="newspaper-fields" class="citation-fields">
+                <label for="newspaper-author">Author <span class="required">*</span>:</label>
+                <input type="text" id="newspaper-author" name="newspaper-author">
+
+                <label for="newspaper-title">Title <span class="required">*</span>:</label>
+                <input type="text" id="newspaper-title" name="newspaper-title" required>
+
+                <label for="newspaper-name">Newspaper Name <span class="required">*</span>:</label>
+                <input type="text" id="newspaper-name" name="newspaper-name" required>
+
+                <label for="newspaper-date">Date <span class="required">*</span>:</label>
+                <input type="text" id="newspaper-date" name="newspaper-date" required>
+
+                <label for="newspaper-page">Page Number:</label>
+                <input type="text" id="newspaper-page" name="newspaper-page">
+            </div>
+
+            <!-- Conference Paper Fields -->
+            <div id="conference-paper-fields" class="citation-fields">
+                <label for="conference-author">Author <span class="required">*</span>:</label>
+                <input type="text" id="conference-author" name="conference-author" required>
+
+                <label for="conference-title">Title <span class="required">*</span>:</label>
+                <input type="text" id="conference-title" name="conference-title" required>
+
+                <label for="conference-name">Conference Name <span class="required">*</span>:</label>
+                <input type="text" id="conference-name" name="conference-name" required>
+
+                <label for="conference-location">Location:</label>
+                <input type="text" id="conference-location" name="conference-location">
+
+                <label for="conference-date">Date <span class="required">*</span>:</label>
+                <input type="text" id="conference-date" name="conference-date" required>
+
+                <label for="conference-pages">Pages:</label>
+                <input type="text" id="conference-pages" name="conference-pages">
+            </div>
+
+            <!-- Thesis/Dissertation Fields -->
+            <div id="thesis-fields" class="citation-fields">
+                <label for="thesis-author">Author <span class="required">*</span>:</label>
+                <input type="text" id="thesis-author" name="thesis-author" required>
+
+                <label for="thesis-title">Title <span class="required">*</span>:</label>
+                <input type="text" id="thesis-title" name="thesis-title" required>
+
+                <label for="thesis-type">Thesis Type <span class="required">*</span>:</label>
+                <input type="text" id="thesis-type" name="thesis-type" required>
+
+                <label for="thesis-university">University <span class="required">*</span>:</label>
+                <input type="text" id="thesis-university" name="thesis-university" required>
+
+                <label for="thesis-year">Year <span class="required">*</span>:</label>
+                <input type="text" id="thesis-year" name="thesis-year" required>
+            </div>
+
+            <!-- Report Fields -->
+            <div id="report-fields" class="citation-fields">
+                <label for="report-author">Author <span class="required">*</span>:</label>
+                <input type="text" id="report-author" name="report-author">
+
+                <label for="report-title">Title <span class="required">*</span>:</label>
+                <input type="text" id="report-title" name="report-title" required>
+
+                <label for="report-organization">Organization <span class="required">*</span>:</label>
+                <input type="text" id="report-organization" name="report-organization" required>
+
+                <label for="report-year">Year <span class="required">*</span>:</label>
+                <input type="text" id="report-year" name="report-year" required>
+
+                <label for="report-url">URL (if any):</label>
+                <input type="url" id="report-url" name="report-url">
+            </div>
+
+            <!-- Encyclopedia/Dictionary Entry Fields -->
+            <div id="encyclopedia-fields" class="citation-fields">
+                <label for="encyclopedia-title">Entry Title <span class="required">*</span>:</label>
+                <input type="text" id="encyclopedia-title" name="encyclopedia-title" required>
+
+                <label for="encyclopedia-name">Encyclopedia/Dictionary Name <span class="required">*</span>:</label>
+                <input type="text" id="encyclopedia-name" name="encyclopedia-name" required>
+
+                <label for="encyclopedia-edition">Edition:</label>
+                <input type="text" id="encyclopedia-edition" name="encyclopedia-edition">
+
+                <label for="encyclopedia-year">Year <span class="required">*</span>:</label>
+                <input type="text" id="encyclopedia-year" name="encyclopedia-year" required>
             </div>
 
             <!-- Buttons and Citation Display -->
@@ -211,7 +340,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!-- Added Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!-- Flatpickr JS -->
     <script src="script.js"></script>
 </body>
 </html>
