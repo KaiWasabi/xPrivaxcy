@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGLC Generator</title>
+    <title>Kai's AGLC Citation Generator</title>
     <meta name="google-adsense-account" content="ca-pub-3578807727190103">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> <!-- Added Flatpickr CSS -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3578807727190103"
      crossorigin="anonymous"></script>
 </head>
@@ -43,16 +44,18 @@
                 <label for="case-page">Starting Page <span class="required">*</span>:</label>
                 <input type="text" id="case-page" name="case-page" required>
 
-                <label for="case-court">Court:</label>
+                <label for="case-court">Court (if required):</label>
                 <input type="text" id="case-court" name="case-court">
 
                 <label>
-                    <input type="checkbox" id="case-pinpoint-toggle"> Include Pinpoint Reference
+                    <input type="checkbox" id="case-pinpoint-toggle"> Add Pinpoint Reference
                 </label>
-                <div id="case-pinpoint-fields" style="display:none;">
-                    <label for="case-pinpoint-page">Page:</label>
+
+                <div id="case-pinpoint-fields" class="citation-fields">
+                    <label for="case-pinpoint-page">Pinpoint Page:</label>
                     <input type="text" id="case-pinpoint-page" name="case-pinpoint-page">
-                    <label for="case-pinpoint-paragraph">Paragraph:</label>
+
+                    <label for="case-pinpoint-paragraph">Pinpoint Paragraph:</label>
                     <input type="text" id="case-pinpoint-paragraph" name="case-pinpoint-paragraph">
                 </div>
             </div>
@@ -75,20 +78,21 @@
                 <input type="text" id="book-publisher" name="book-publisher" required>
 
                 <label>
-                    <input type="checkbox" id="book-pinpoint-toggle"> Include Pinpoint Reference
+                    <input type="checkbox" id="book-pinpoint-toggle"> Add Pinpoint Reference
                 </label>
-                <div id="book-pinpoint-fields" style="display:none;">
-                    <label for="book-pinpoint-page">Page:</label>
+
+                <div id="book-pinpoint-fields" class="citation-fields">
+                    <label for="book-pinpoint-page">Pinpoint Page:</label>
                     <input type="text" id="book-pinpoint-page" name="book-pinpoint-page">
                 </div>
             </div>
 
-            <!-- Journal Article Fields -->
+            <!-- Journal Fields -->
             <div id="journal-fields" class="citation-fields">
                 <label for="journal-author">Author <span class="required">*</span>:</label>
                 <input type="text" id="journal-author" name="journal-author" required>
 
-                <label for="journal-title">Article Title <span class="required">*</span>:</label>
+                <label for="journal-title">Title <span class="required">*</span>:</label>
                 <input type="text" id="journal-title" name="journal-title" required>
 
                 <label for="journal-name">Journal Name <span class="required">*</span>:</label>
@@ -104,10 +108,11 @@
                 <input type="text" id="journal-page" name="journal-page" required>
 
                 <label>
-                    <input type="checkbox" id="journal-pinpoint-toggle"> Include Pinpoint Reference
+                    <input type="checkbox" id="journal-pinpoint-toggle"> Add Pinpoint Reference
                 </label>
-                <div id="journal-pinpoint-fields" style="display:none;">
-                    <label for="journal-pinpoint-page">Page:</label>
+
+                <div id="journal-pinpoint-fields" class="citation-fields">
+                    <label for="journal-pinpoint-page">Pinpoint Page:</label>
                     <input type="text" id="journal-pinpoint-page" name="journal-pinpoint-page">
                 </div>
             </div>
@@ -124,15 +129,18 @@
                 <input type="text" id="legislation-jurisdiction" name="legislation-jurisdiction" required>
 
                 <label>
-                    <input type="checkbox" id="legislation-pinpoint-toggle"> Include Pinpoint Reference
+                    <input type="checkbox" id="legislation-pinpoint-toggle"> Add Pinpoint Reference
                 </label>
-                <div id="legislation-pinpoint-fields" style="display:none;">
-                    <label for="legislation-pinpoint-section">Section:</label>
+
+                <div id="legislation-pinpoint-fields" class="citation-fields">
+                    <label for="legislation-pinpoint-section">Pinpoint Section:</label>
                     <input type="text" id="legislation-pinpoint-section" name="legislation-pinpoint-section">
-                    <label for="legislation-pinpoint-subsection">Subsection:</label>
+
+                    <label for="legislation-pinpoint-subsection">Pinpoint Subsection:</label>
                     <input type="text" id="legislation-pinpoint-subsection" name="legislation-pinpoint-subsection">
                 </div>
             </div>
+
             <!-- Website Fields -->
             <div id="website-fields" class="citation-fields">
                 <label for="website-author">Author (if any):</label>
@@ -189,7 +197,7 @@
     <div id="privacy-policy-modal" style="display:none;">
         <div class="modal-content">
             <h2>Privacy Policy</h2>
-            <p>I believe that privacy is a fundemental human right. I strive to collect as minimal information as possible. This tool stores citation data locally on your device using your browser's local storage. This data is not transmitted or shared with any external servers or third parties. I also strive to provide this tool for free, as I believe in access to education. Ads may be served in a non-intrusive way by Google Adsense. For detailed policy: www.kaiwatanabe.com/aglcprivacy</p>
+            <p>I believe that privacy is a fundamental human right. I strive to collect as minimal information as possible. This tool stores citation data locally on your device using your browser's local storage. This data is not transmitted or shared with any external servers or third parties. I also strive to provide this tool for free, as I believe in access to education. Ads may be served in a non-intrusive way by Google Adsense. For detailed policy: www.kaiwatanabe.com/aglcprivacy</p>
             <button onclick="closePrivacyPolicy()">Close</button>
         </div>
     </div>
@@ -198,11 +206,12 @@
     <div id="equity-statement-modal" style="display:none;">
         <div class="modal-content">
             <h2>Our equity policy</h2>
-            <p>This website is constructed to be light weight to accomodate to slower internet speed. This website will be provided for use free of charge.</p>
+            <p>This website is constructed to be lightweight to accommodate slower internet speeds. This website will be provided for use free of charge.</p>
             <button onclick="closeEquityStatement()">Close</button>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!-- Added Flatpickr JS -->
     <script src="script.js"></script>
 </body>
 </html>
