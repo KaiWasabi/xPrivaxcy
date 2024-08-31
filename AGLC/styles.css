@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.disclaimer-note {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.required {
+    color: red;
+    margin-left: 5px;
+}
+
+input[type="text"], input[type="url"], input[type="date"], select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus, input[type="url"]:focus, input[type="date"]:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: flex-start;
+}
+
+#generate-citation {
+    background-color: #28a745;
+    color: white;
+}
+
+#generate-citation:hover {
+    background-color: #218838;
+}
+
+#save-citation {
+    background-color: #007bff;
+    color: white;
+    margin-top: 10px;
+}
+
+#save-citation:hover {
+    background-color: #0056b3;
+}
+
+.save-explanation {
+    font-size: 14px;
+    color: #666;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+button.clear {
+    background-color: #dc3545;
+    color: white;
+}
+
+button.clear:hover {
+    background-color: #c82333;
+}
+
+.citation-fields {
+    display: none;
+}
+
+#citation-result, #saved-citations {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+#generated-citation {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#citation-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#citation-list li {
+    padding: 5px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#privacy-policy-link, #equity-statement-link {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#privacy-policy-modal, #equity-statement-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 80%;
+    text-align: center;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
