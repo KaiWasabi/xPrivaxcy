@@ -1,36 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>xPrivacy</title>
-  <meta name="google-adsense-account" content="ca-pub-3578807727190103"> 
+  <meta name="google-adsense-account" content="ca-pub-3578807727190103">
   <link rel="stylesheet" href="./style.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3578807727190103"
-     crossorigin="anonymous"></script>
-
+  <link href="https://fonts.googleapis.com/css?family=Raleway:900&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3578807727190103" crossorigin="anonymous"></script>
 </head>
 <body>
+  <nav>
+    <ul>
+		<li><a href="#" id="homeLink">Home</a></li>
+		<li><a href="https://www.kaiwatanabe.com/about" target="_self">About Me</a></li>
+		<li><a href="https://www.kaiwatanabe.com/AGLC" target="_self">AGLC</a></li>
+    </ul>
+  </nav>
 
+  <div id="container">
+    <span id="text1"></span>
+  </div>
 
-
-<div id="container">
-	<span id="text1"></span>
-	<span id="text2"></span>
-</div>
-
-<svg id="filters">
-	<defs>
-		<filter id="threshold">
-			<feColorMatrix in="SourceGraphic"
-					type="matrix"
-					values="1 0 0 0 0
-									0 1 0 0 0
-									0 0 1 0 0
-									0 0 0 255 -140" />
-		</filter>
-	</defs>
-</svg>
-  <script  src="./script.js"></script>
-
+  <script src="./script.js"></script>
 </body>
 </html>

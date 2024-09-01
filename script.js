@@ -1,88 +1,147 @@
 const elts = {
   text1: document.getElementById("text1"),
-  text2: document.getElementById("text2") };
+};
 
+const initialText = "Privacy...";
+const sentences = [
+  "is a fundamental human right.",
+  "is a cornerstone of democracy.",
+  "and free speech go hand in hand.",
+  "ensures dignity and respect for all.",
+  "is essential for impartial and accessible justice.",
+  "enriches our global society by protecting diversity.",
+  "is our human right."
+];
 
-// The strings to morph between. You can change these to anything you want!
-const texts = [
-"Privacy",
-"is",
-"a",
-"fundamental",
-"human",
-"right",
-""];
+const typeSpeed = 75;
+const dotDeleteSpeed = 800;
+const sentenceDeleteSpeed = 50;
+const pauseTime = 2000;
+const initialPauseTime = 4000;
 
+let cursorBlinkInterval;
 
-// Controls the speed of morphing.
-const morphTime = 1;
-const cooldownTime = 0.25;
-
-let textIndex = texts.length - 1;
-let time = new Date();
-let morph = 0;
-let cooldown = cooldownTime;
-
-elts.text1.textContent = texts[textIndex % texts.length];
-elts.text2.textContent = texts[(textIndex + 1) % texts.length];
-
-function doMorph() {
-  morph -= cooldown;
-  cooldown = 0;
-
-  let fraction = morph / morphTime;
-
-  if (fraction > 1) {
-    cooldown = cooldownTime;
-    fraction = 1;
-  }
-
-  setMorph(fraction);
-}
-
-function setMorph(fraction) {
-
-  elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-  elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
-
-  fraction = 1 - fraction;
-  elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-  elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
-
-  elts.text1.textContent = texts[textIndex % texts.length];
-  elts.text2.textContent = texts[(textIndex + 1) % texts.length];
-}
-
-function doCooldown() {
-  morph = 0;
-
-  elts.text2.style.filter = "";
-  elts.text2.style.opacity = "100%";
-
-  elts.text1.style.filter = "";
-  elts.text1.style.opacity = "0%";
-}
-
-function animate() {
-  requestAnimationFrame(animate);
-
-  let newTime = new Date();
-  let shouldIncrementIndex = cooldown > 0;
-  let dt = (newTime - time) / 1000;
-  time = newTime;
-
-  cooldown -= dt;
-
-  if (cooldown <= 0) {
-    if (shouldIncrementIndex) {
-      textIndex++;
+function startCursorBlink() {
+  cursorBlinkInterval = setInterval(() => {
+    const cursor = document.getElementById('cursor');
+    if (cursor) {
+      cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
     }
+  }, 500);
+}
 
-    doMorph();
-  } else {
-    doCooldown();
+function stopCursorBlink() {
+  clearInterval(cursorBlinkInterval);
+  const cursor = document.getElementById('cursor');
+  if (cursor) {
+    cursor.style.opacity = '1'; // Ensure cursor is visible
   }
 }
 
+function typeText(text, prefix = "", callback) {
+  stopCursorBlink();
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      elts.text1.innerHTML = prefix + text.substring(0, i + 1) + "<span id='cursor'>|</span>";
+      i++;
+      setTimeout(typing, typeSpeed);
+    } else {
+      startCursorBlink();
+      callback();
+    }
+  }
+  typing();
+}
 
-animate();
+function deleteText(text, prefix = "", callback) {
+  stopCursorBlink();
+  let i = text.length;
+  function deleting() {
+    if (i >= 0) {
+      elts.text1.innerHTML = prefix + text.substring(0, i) + "<span id='cursor'>|</span>";
+      i--;
+      setTimeout(deleting, sentenceDeleteSpeed);
+    } else {
+      startCursorBlink();
+      callback();
+    }
+  }
+  deleting();
+}
+
+function deleteDots(callback) {
+  let i = initialText.length;
+  function deleteDotsAnimation() {
+    stopCursorBlink();
+    if (i > 7) {
+      elts.text1.innerHTML = initialText.substring(0, i - 1) + "<span id='cursor'>|</span>";
+      i--;
+      setTimeout(deleteDotsAnimation, dotDeleteSpeed);
+    } else {
+      elts.text1.innerHTML = "Privacy<span id='cursor'>|</span>";
+      startCursorBlink();
+      callback();
+    }
+  }
+  deleteDotsAnimation();
+}
+
+function startSentenceSequence() {
+  let sentenceIndex = 0;
+  function typeSentence() {
+    stopCursorBlink();
+    let i = 0;
+    const sentence = sentences[sentenceIndex];
+    function typingSentence() {
+      if (i < sentence.length) {
+        elts.text1.innerHTML = "Privacy " + sentence.substring(0, i + 1) + "<span id='cursor'>|</span>";
+        i++;
+        setTimeout(typingSentence, typeSpeed);
+      } else {
+        startCursorBlink();
+        if (sentenceIndex < sentences.length - 1) {
+          setTimeout(() => {
+            deleteText(sentence, "Privacy ", () => {
+              sentenceIndex++;
+              typeSentence();
+            });
+          }, pauseTime);
+        } else {
+          applyFinalSentenceWithEmphasis();
+        }
+      }
+    }
+    typingSentence();
+  }
+  typeSentence();
+}
+
+function applyFinalSentenceWithEmphasis() {
+  stopCursorBlink();
+  const sentence = sentences[sentences.length - 1];
+  const finalTextBeforeEmphasis = sentence.replace("is", "is");
+  elts.text1.innerHTML = "Privacy " + finalTextBeforeEmphasis + "<span id='cursor'>|</span>";
+
+  setTimeout(() => {
+    const emphasizedText = sentence.replace(
+      "is",
+      "<span class='emphasized smooth-emphasis'>is</span>"
+    );
+    elts.text1.innerHTML = "Privacy " + emphasizedText + "<span id='cursor'>|</span>";
+    startCursorBlink();
+  }, pauseTime);
+}
+
+function startInitialSequence() {
+  elts.text1.innerHTML = "";
+  typeText(initialText, "", () => {
+    setTimeout(() => {
+      deleteDots(() => {
+        startSentenceSequence();
+      });
+    }, initialPauseTime);
+  });
+}
+
+startInitialSequence();

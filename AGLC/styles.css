@@ -223,3 +223,50 @@ footer a:hover {
 .citation-fields {
     display: none;
 }
+
+nav {
+    width: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Raleway', sans-serif;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18pt;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+#container {
+    margin-top: 60px; /* Offset for the fixed navigation bar */
+    width: 80%; /* Reduced width for earlier text wrapping */
+    max-width: 900px;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+}
