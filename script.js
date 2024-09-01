@@ -13,9 +13,9 @@ const sentences = [
 
 const typeSpeed = 75;
 const dotDeleteSpeed = 800;
-const sentenceDeleteSpeed = 50;
-const pauseTime = 2000;
-const initialPauseTime = 4000;
+const sentenceDeleteSpeed = 80;
+const pauseTime = 1500;
+const initialPauseTime = 3000;
 
 let cursorBlinkInterval;
 
