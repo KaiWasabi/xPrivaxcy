@@ -7,9 +7,7 @@ const sentences = [
   "is a fundamental human right.",
   "is a cornerstone of democracy.",
   "and free speech go hand in hand.",
-  "ensures dignity and respect for all.",
-  "is essential for impartial and accessible justice.",
-  "enriches our global society by protecting diversity.",
+  "is essential for impartial justice.",
   "is our human right."
 ];
 
