@@ -11,8 +11,8 @@ const sentences = [
   "is our human right."
 ];
 
-const typeSpeed = 55;
-const dotDeleteSpeed = 800;
+const typeSpeed = 40;
+const dotDeleteSpeed = 90;
 const sentenceDeleteSpeed = 30;
 const pauseTime = 1500;
 const initialPauseTime = 3000;
