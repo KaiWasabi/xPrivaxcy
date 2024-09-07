@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif; /* Changed font to Arial with fallback to Helvetica */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation bar consistency */
+nav {
+    width: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif; /* Use the same font for navigation */
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18pt; /* Same font size as before */
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Main content container */
+#container {
+    margin-top: 100px; /* Added more space between the navigation bar and name */
+    width: 100%;
+    text-align: center; /* Center-align name and language switcher */
+    flex-grow: 1; /* Ensure the container takes up available space */
+}
+
+/* Center the name relative to the navigation bar */
+#nameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px; /* Spacing from navigation bar */
+}
+
+#name {
+    font-size: 3.5rem; /* Larger font for the name */
+    font-weight: bold; /* Use bold for Arial */
+    margin-bottom: 20px; /* Adjust the space between name and buttons */
+}
+
+/* Language switcher directly under the name */
+#languageSwitcher {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#languageSwitcher button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 30px; /* Consistent padding for both buttons */
+    font-size: 16px; /* Ensure the text size is the same */
+    cursor: pointer;
+    margin: 0 5px;
+    min-width: 120px; /* Ensures both buttons are at least the same width */
+    text-align: center;
+}
+
+#languageSwitcher button:hover {
+    background-color: #555;
+}
+
+/* Content alignment */
+#contentContainer {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    text-align: left;
+}
+
+h2 {
+    font-size: 2.5rem; /* Section titles like "Work History" remain bold */
+    font-weight: bold;  /* Bold for headings */
+    margin-bottom: 10px;
+}
+
+/* Content under the headings is non-bold */
+span, div {
+    font-size: 1.8rem; /* Description text size */
+    font-weight: normal;  /* Non-bold for the actual content */
+    margin-bottom: 20px;
+}
+
+div > div { /* For lines within work history, awards, etc. */
+    margin-top: 10px;
+    font-weight: normal;  /* Non-bold for contents in each line */
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Cursor animation for typing effect */
+#cursor {
+    font-weight: normal;
+    font-family: inherit;
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
