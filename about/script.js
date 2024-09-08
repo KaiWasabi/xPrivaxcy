@@ -40,6 +40,7 @@ const elts = {
       "Secretary General for ANU Japan Club 2024 - Present.",
       "ANU Students' Association, Disputes Committee 2024 - Present",
       "TEDxYouth@Canberra, Marketing Associate 2024 - Present",
+      "The Pennsylvania State University, Research Assistant 2022-2023"
     ],
     awardsTitle: "Awards",
     awards: [
@@ -72,6 +73,7 @@ const elts = {
       "豪州国立大日本クラブ、事務局長・書記官、2024年〜現在",
       "豪州国立大学生自治会, 紛争審判委員 2024年〜現在",
       "TEDxYouth@Canberra, マーケティングアソシエイト 2024年〜現在",
+      "ペンシルベニア州立大学,　研究助手　2023年〜2024年"
     ],
     awardsTitle: "受賞歴",
     awards: [
