@@ -58,28 +58,36 @@ nav ul li a:hover {
 }
 
 #text1 {
-  width: 100%;
-  max-width: 80%; /* Limit the width to 80% of the screen to avoid text touching the edges */
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: 900;
-  font-family: 'Raleway', sans-serif; /* Use the Raleway font from Google Fonts */
-  font-size: 4rem; /* Adjust this value to make the text larger as needed */
-}
-
-#cursor {
-  font-weight: normal;
-  font-family: inherit; /* Keep the cursor font consistent with the text */
-  animation: blink 1s step-start infinite; /* Add blink animation */
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-weight: 900;
+	font-family: 'Raleway', sans-serif; /* Use the Raleway font from Google Fonts */
+	font-size: 4rem; /* Adjust this value to make the text larger as needed */
   }
-}
+  
+  body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  #cursor {
+	font-weight: normal;
+	font-family: inherit; /* Keep the cursor font consistent with the text */
+	animation: blink 1s step-start infinite; /* Add blink animation */
+  }
+  
+  @keyframes blink {
+	50% {
+	  opacity: 0;
+	}
+  }
 
 .emphasized {
     font-style: italic;
