@@ -37,11 +37,11 @@ const elts = {
     ],
     workHistoryTitle: "Work History",
     workHistory: [
-      "President of ANU Japan Club 2025 - Present.",
-      "Secretary General for ANU Japan Club 2024 - Present.",
-      "ANU Students' Association, Disputes Committee 2024 - Present",
-      "TEDxYouth@Canberra, Marketing Associate 2024 - Present",
-      "The Pennsylvania State University, Research Assistant 2022-2023"
+      "President of ANU Japan Club, 2025 - Present.",
+      "Secretary General for ANU Japan Club, 2024 - Present.",
+      "ANU Students' Association, Disputes Committee, 2024 - Present",
+      "TEDxYouth@Canberra, Marketing Associate, 2024 - Present",
+      "The Pennsylvania State University, Research Assistant, 2022-2023"
     ],
     awardsTitle: "Awards",
     awards: [
@@ -52,10 +52,10 @@ const elts = {
     ],
     certificationsTitle: "Certifications",
     certifications: [
-      "ACT Responsible Service of Alcohol",
-      "INFOSEC Privacy Fundamentals",
-      "Google Cybersecurity Specialization",
-      "CITI Social and Behavioral Human Subject Research Course Certification"
+      "ACT Responsible Service of Alcohol, 2024",
+      "INFOSEC Privacy Fundamentals, 2023",
+      "Google Cybersecurity Specialization, 2023",
+      "CITI Social and Behavioral Human Subject Research Course Certification, 2023"
     ],
     publicationsTitle: "Publications",
     publications: "Perception of Medication for Opioid Use Disorder (doi:10.26207/ec8b-2752)"
@@ -73,23 +73,23 @@ const elts = {
     workHistory: [
       "豪州国立大日本クラブ、会長、2025年〜現在",
       "豪州国立大日本クラブ、事務局長・書記官、2024年〜2024年",
-      "豪州国立大学生自治会, 紛争審判委員 2024年〜現在",
-      "TEDxYouth@Canberra, マーケティングアソシエイト 2024年〜現在",
-      "ペンシルベニア州立大学,　研究助手　2023年〜2024年"
+      "豪州国立大学生自治会、紛争審判委員 2024年〜現在",
+      "TEDxYouth@Canberra、マーケティングアソシエイト、2024年〜現在",
+      "ペンシルベニア州立大学、研究助手、2023年〜2024年"
     ],
     awardsTitle: "受賞歴",
     awards: [
       "ペンシルバニア州立大学、ウォーカー学長賞、2023年",
-      "シグマ・サイ・ベーレンド研究学会 2位",
+      "シグマ・サイ・ベーレンド研究学会2位, 2023年",
       "春学期 ペンシルベニア州立大学 学長表彰リスト、2023年",
       "秋学期 ペンシルベニア州立大学 学長表彰リスト、2023年"
     ],
     certificationsTitle: "認定資格",
     certifications: [
-      "ACT アルコール適正提供資格",
-      "INFOSEC プライバシー基礎講座",
-      "Google サイバーセキュリティ専門資格",
-      "CITI 社会・行動科学における人体研究コース修了認定"
+      "ACT アルコール適正提供資格、2024",
+      "INFOSEC プライバシー基礎講座、2023年",
+      "Google サイバーセキュリティ専門資格、2023年",
+      "CITI 社会・行動科学における人体研究コース修了認定、2023年"
     ],
     publicationsTitle: "研究・出版物",
     publications: "オピオイド使用障害に対する薬物治療の認識 (doi:10.26207/ec8b-2752)"
