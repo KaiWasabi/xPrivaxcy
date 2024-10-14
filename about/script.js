@@ -37,6 +37,7 @@ const elts = {
     ],
     workHistoryTitle: "Work History",
     workHistory: [
+      "ANU Residential Mentor, 2025 - Present.",
       "President of ANU Japan Club, 2025 - Present.",
       "Secretary General for ANU Japan Club, 2024 - Present.",
       "ANU Students' Association, Disputes Committee, 2024 - Present",
@@ -71,6 +72,7 @@ const elts = {
     ],
     workHistoryTitle: "職歴",
     workHistory: [
+      "オーストラリア国立大学、 学寮長補佐、2025年〜現在",
       "豪州国立大日本クラブ、会長、2025年〜現在",
       "豪州国立大日本クラブ、事務局長・書記官、2024年〜2024年",
       "豪州国立大学生自治会、紛争審判委員 2024年〜現在",
