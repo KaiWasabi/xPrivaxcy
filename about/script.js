@@ -37,12 +37,13 @@ const elts = {
     ],
     workHistoryTitle: "Work History",
     workHistory: [
-      "ANU Residential Mentor, 2025 - Present.",
-      "President of ANU Japan Club, 2025 - Present.",
-      "Secretary General for ANU Japan Club, 2024 - Present.",
-      "ANU Students' Association, Disputes Committee, 2024 - Present",
-      "TEDxYouth@Canberra, Marketing Associate, 2024 - Present",
-      "The Pennsylvania State University, Research Assistant, 2022-2023"
+      "ANU Residential Mentor, Feb. 2025 - Present.",
+      "The Australian National University Appeals Panel 2025 - Present",
+      "President of ANU Japan Club, Oct. 2024 - Present.",
+      "Secretary General for ANU Japan Club, Aug. 2024 - Oct. 2024",
+      "ANU Students' Association, Disputes Committee, Jun. 2024 - Present",
+      "TEDxYouth@Canberra, Marketing Associate, Mar. 2024 - Oct. 2024",
+      "The Pennsylvania State University, Research Assistant, Oct. 2022 - Aug. 2023"
     ],
     awardsTitle: "Awards",
     awards: [
@@ -72,11 +73,12 @@ const elts = {
     ],
     workHistoryTitle: "職歴",
     workHistory: [
-      "オーストラリア国立大学、 学寮長補佐、2025年〜現在",
-      "豪州国立大日本クラブ、会長、2025年〜現在",
-      "豪州国立大日本クラブ、事務局長・書記官、2024年〜2024年",
-      "豪州国立大学生自治会、紛争審判委員 2024年〜現在",
-      "TEDxYouth@Canberra、マーケティングアソシエイト、2024年〜現在",
+      "オーストラリア国立大学、 学寮長補佐、2025年　2月〜現在",
+      "オーストラリア国立大学、 懲罰控訴審議委員、2025～",
+      "豪州国立大日本クラブ、会長、2025年　10月〜現在",
+      "豪州国立大日本クラブ、事務局長・書記官、2024年　7月〜2024年　10月",
+      "豪州国立大学生自治会、紛争審判委員 2024年　4月〜現在",
+      "TEDxYouth@Canberra、マーケティングアソシエイト、2024年　3月〜2024年　10月",
       "ペンシルベニア州立大学、研究助手、2023年〜2024年"
     ],
     awardsTitle: "受賞歴",
