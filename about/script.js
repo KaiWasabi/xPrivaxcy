@@ -37,8 +37,9 @@ const elts = {
     ],
     workHistoryTitle: "Work History",
     workHistory: [
-      "ANU Residential Mentor, Feb. 2025 - Present.",
-      "The Australian National University Appeals Panel 2025 - Present",
+      "Office of The Hon. Kono Taro MP Policy Research Intern, Dec. 2024 - Present ",
+      "ANU Residential Mentor, Dec. 2024 - Present.",
+      "The Australian National University Appeals Panel, Oct. 2024 - Present",
       "President of ANU Japan Club, Oct. 2024 - Present.",
       "Secretary General for ANU Japan Club, Aug. 2024 - Oct. 2024",
       "ANU Students' Association, Disputes Committee, Jun. 2024 - Present",
@@ -73,8 +74,9 @@ const elts = {
     ],
     workHistoryTitle: "職歴",
     workHistory: [
-      "オーストラリア国立大学、 学寮長補佐、2025年　2月〜現在",
-      "オーストラリア国立大学、 懲罰控訴審議委員、2025～",
+      "衆議院議員河野太郎事務所、インターン、2024年　12月〜現在",
+      "オーストラリア国立大学、 学寮長補佐、2024年　12月〜現在",
+      "オーストラリア国立大学、 懲罰控訴審議委員、2024年　10月～",
       "豪州国立大日本クラブ、会長、2025年　10月〜現在",
       "豪州国立大日本クラブ、事務局長・書記官、2024年　7月〜2024年　10月",
       "豪州国立大学生自治会、紛争審判委員 2024年　4月〜現在",
