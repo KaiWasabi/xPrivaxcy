@@ -102,7 +102,7 @@ const elts = {
   };
   
   // Typing function for single line
-  function typeText(element, text, callback, speed = 20) {
+  function typeText(element, text, callback, speed = 50) {
     let i = 0;
     function typing() {
       if (i < text.length) {
@@ -118,7 +118,7 @@ const elts = {
   }
   
   // Typing function for multiple lines
-  function typeMultipleLines(element, lines, speed = 20) {
+  function typeMultipleLines(element, lines, speed = 50) {
     let lineIndex = 0;
   
     function typeNextLine() {
@@ -174,15 +174,15 @@ const elts = {
   // Language switch event listeners
   document.getElementById("lang-en").addEventListener("click", () => {
     currentLanguage = "en";
-    displayContent(currentLanguage, 40, 20, 10);  // Adjust typing speeds as needed
+    displayContent(currentLanguage, 15, 5, 2.5);  // Adjust typing speeds as needed
   });
   
   document.getElementById("lang-jp").addEventListener("click", () => {
     currentLanguage = "jp";
-    displayContent(currentLanguage, 100, 20, 10);  // Adjust typing speeds as needed
+    displayContent(currentLanguage, 15, 5, 2.5);  // Adjust typing speeds as needed
   });
   
   // Load default content in English on page load
   let currentLanguage = "en";
-  displayContent(currentLanguage, 40, 20, 10);  // Adjust typing speeds as needed
+  displayContent(currentLanguage, 15, 5, 2.5);  // Adjust typing speeds as needed
   
