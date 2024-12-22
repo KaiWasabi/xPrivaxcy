@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投票確認システム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #002776;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        label, p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        select, input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #002776;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        選挙管理委員会 - 投票確認システム
+    </header>
+
+    <div class="container">
+        <h1>投票確認システム</h1>
+        <p>入力した情報を基に投票内容を確認します。</p>
+
+        <label for="district">選挙区:</label>
+        <select id="district">
+            <option value="district1">東京第1区</option>
+            <option value="district2">大阪第2区</option>
+            <option value="district3">福岡第3区</option>
+        </select>
+
+        <label for="candidate">投票した候補者:</label>
+        <select id="candidate">
+            <option value="candidateA">候補者A</option>
+            <option value="candidateB">候補者B</option>
+            <option value="candidateC">候補者C</option>
+        </select>
+
+        <label for="hash">投票内容のハッシュキー:</label>
+        <input type="text" id="hash" placeholder="ZGLZDHJPY3QXX2NH">
+
+        <label for="token">仮想トークン:</label>
+        <input type="text" id="token" placeholder="DG9RZW5FWKDMWKRI">
+
+        <button onclick="verifyVote()">確認する</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <footer>
+        © 2024 選挙管理委員会
+    </footer>
+
+    <script>
+        function generateHash(district, candidate) {
+            return btoa(`${district}_${candidate}`).slice(0, 16);
+        }
+
+        function generateToken(district, candidate) {
+            return btoa(`${district}_${candidate}_token`).slice(0, 16);
+        }
+
+        function verifyVote() {
+            const district = document.getElementById('district').value;
+            const candidate = document.getElementById('candidate').value;
+            const inputHash = document.getElementById('hash').value.trim();
+            const inputToken = document.getElementById('token').value.trim();
+
+            const expectedHash = generateHash(district, candidate);
+            const expectedToken = generateToken(district, candidate);
+
+            let outputMessage = `<p>選挙区: ${district}</p>`;
+            outputMessage += `<p>投票した候補者: ${candidate}</p>`;
+
+            if (inputHash === expectedHash) {
+                outputMessage += '<p class="success">入力したハッシュキー: 合致しています</p>';
+            } else {
+                outputMessage += '<p class="error">入力したハッシュキー: 合致していません</p>';
+            }
+
+            if (inputToken === expectedToken) {
+                outputMessage += '<p class="success">仮想トークン: 合致しています</p>';
+            } else {
+                outputMessage += '<p class="error">仮想トークン: 合致していません</p>';
+            }
+
+            if (inputHash === expectedHash && inputToken === expectedToken) {
+                outputMessage += '<p class="success">すべての情報が正確に一致しました。選挙管理委員会により投票が正しく記録されています。</p>';
+            } else {
+                outputMessage += '<p class="error">データの一部が一致しません。入力内容を再度確認してください。</p>';
+            }
+
+            document.getElementById('output').innerHTML = outputMessage;
+        }
+    </script>
+</body>
+</html>
