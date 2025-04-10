@@ -1,57 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found | Kai Watanabe</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Additional 404-specific styles */
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .error-container {
-            text-align: center;
-            padding: 50px;
-        }
-
-        .error-container h1 {
-            font-size: 72px;
-            margin: 20px 0;
-            color: #343a40;
-        }
-
-        .error-container p {
-            font-size: 24px;
-            margin-bottom: 30px;
-            color: #6c757d;
-        }
-
-        .error-container a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 18px;
-            border: 2px solid #007bff;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .error-container a:hover {
-            background-color: #007bff;
-            color: #ffffff;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Kai Watanabe</title>
+  <style>
+    :root {
+      --nav-background: #0B1736;
+      --nav-hover: #20346F;
+      --accent-color: #00A8E8;
+      --text-color: #ffffff;
+      --light-bg: #f8f9fa;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    /* Full-screen particle background */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: var(--nav-background);
+    }
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      color: var(--text-color);
+      padding: 20px;
+    }
+    .error-container h1 {
+      font-size: 96px;
+      margin: 20px 0;
+    }
+    .error-container p {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #cccccc;
+    }
+    .error-container a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 18px;
+      border: 2px solid var(--accent-color);
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .error-container a:hover {
+      background-color: var(--accent-color);
+      color: var(--text-color);
+    }
+  </style>
 </head>
 <body>
-    <div class="error-container">
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="https://www.kaiwatanabe.com">Return to Homepage</a>
-    </div>
+  <!-- Particles container behind the error message -->
+  <div id="particles-js"></div>
+  <div class="error-container">
+    <h1>404</h1>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <a href="https://www.kaiwatanabe.com">Return to Homepage</a>
+  </div>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.7 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 4 }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize Flatpickr for date selection with Australian format
+    // Initialize Flatpickr for date inputs
     flatpickr("#website-access-date, #newspaper-date, #conference-date", {
         dateFormat: "d/m/Y"
     });
@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
             field.style.display = 'none';
         });
     }
+    hideAllFields();
 
-    // Show only relevant fields based on the selected source type
+    // Show only the relevant fields based on the selected source type
     function showRelevantFields(sourceType) {
         hideAllFields();
         const selectedFields = document.getElementById(sourceType + '-fields');
@@ -19,17 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
             selectedFields.style.display = 'block';
         }
     }
-
-    // On source type change, show the relevant fields
     document.getElementById('source-type').addEventListener('change', function () {
-        const selectedSourceType = this.value;
-        showRelevantFields(selectedSourceType);
+        showRelevantFields(this.value);
     });
 
-    // Hide all fields on page load
-    hideAllFields();
-
-    // Function to toggle Pinpoint Fields
+    // Toggle display of pinpoint fields if the checkbox is checked
     function togglePinpoint(checkboxId, pinpointFieldsId) {
         const checkbox = document.getElementById(checkboxId);
         const pinpointFields = document.getElementById(pinpointFieldsId);
@@ -37,15 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
             pinpointFields.style.display = checkbox.checked ? 'block' : 'none';
         });
     }
-
-    // Initialize Pinpoint Fields toggle
     togglePinpoint('case-domestic-pinpoint-toggle', 'case-domestic-pinpoint-fields');
     togglePinpoint('case-international-pinpoint-toggle', 'case-international-pinpoint-fields');
     togglePinpoint('book-pinpoint-toggle', 'book-pinpoint-fields');
     togglePinpoint('journal-pinpoint-toggle', 'journal-pinpoint-fields');
     togglePinpoint('legislation-pinpoint-toggle', 'legislation-pinpoint-fields');
 
-    // Function to generate citations based on the selected source type and inputs
+    // Function to generate the citation from input fields
     window.generateCitation = function () {
         const sourceType = document.getElementById('source-type').value;
         let citation = '';
@@ -197,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 citation = `${title}, <i>${name}</i> (${edition ? edition + ' ed, ' : ''}${year}).`;
             }
         }
-
         document.getElementById('generated-citation').innerHTML = citation;
     };
 
@@ -206,11 +198,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const citation = document.getElementById('generated-citation').innerHTML;
         if (citation && citation.trim() !== "") {
             let citations = JSON.parse(localStorage.getItem('citations')) || [];
-            citations.push(citation); // Add a new citation
-
+            citations.push(citation);
             localStorage.setItem('citations', JSON.stringify(citations));
             displaySavedCitations();
-            clearForm(); // Clear form after saving
+            clearForm();
         } else {
             alert('Cannot save an empty citation.');
         }
@@ -220,34 +211,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const citations = JSON.parse(localStorage.getItem('citations')) || [];
         const citationList = document.getElementById('citation-list');
         citationList.innerHTML = '';
-    
         citations.forEach((citation, index) => {
             const li = document.createElement('li');
-    
             const citationText = document.createElement('span');
-            citationText.innerHTML = citation; // Use innerHTML to render HTML tags properly
-    
+            citationText.innerHTML = citation;
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.className = 'delete-button';
             deleteButton.onclick = function () {
                 deleteCitation(index);
             };
-    
             li.appendChild(citationText);
             li.appendChild(deleteButton);
             citationList.appendChild(li);
         });
     }
 
-    // Clear form fields after saving
     function clearForm() {
         document.getElementById('citation-form').reset();
         document.getElementById('generated-citation').innerHTML = '';
         hideAllFields();
     }
 
-    // Delete a specific citation
     function deleteCitation(index) {
         let citations = JSON.parse(localStorage.getItem('citations')) || [];
         citations.splice(index, 1);
@@ -255,18 +240,15 @@ document.addEventListener('DOMContentLoaded', function () {
         displaySavedCitations();
     }
 
-    // Export saved citations as a .txt file
     window.exportCitations = function () {
         const citations = JSON.parse(localStorage.getItem('citations')) || [];
         if (citations.length > 0) {
-            // Create plain text citations by removing HTML tags
             const plainTextCitations = citations.map(citation => {
                 return citation
-                    .replace(/<\/?i>/g, '')   // Remove <i> and </i>
-                    .replace(/<\/?b>/g, '')   // Remove <b> and </b>
-                    .replace(/<\/?u>/g, '');  // Remove <u> and </u>
-            }).join('\n\n'); // Separate citations by double newlines
-    
+                    .replace(/<\/?i>/g, '')
+                    .replace(/<\/?b>/g, '')
+                    .replace(/<\/?u>/g, '');
+            }).join('\n\n');
             const blob = new Blob([plainTextCitations], { type: 'text/plain' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
@@ -276,9 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('No citations to export.');
         }
     };
-    
 
-    // Clear saved citations
     window.clearCitations = function () {
         if (confirm('Are you sure you want to clear all saved citations?')) {
             localStorage.removeItem('citations');
@@ -286,23 +266,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Handle the Privacy Policy and Equity Statement modals
+    // Modal handling for Privacy Policy and Equity Statement
     document.getElementById('privacy-policy-link').addEventListener('click', function (event) {
         event.preventDefault();
-        document.getElementById('privacy-policy-modal').style.display = 'block';
+        document.getElementById('privacy-policy-modal').style.display = 'flex';
     });
-
     document.getElementById('equity-statement-link').addEventListener('click', function (event) {
         event.preventDefault();
-        document.getElementById('equity-statement-modal').style.display = 'block';
+        document.getElementById('equity-statement-modal').style.display = 'flex';
     });
-
     document.querySelectorAll('.modal-content button').forEach(function (closeBtn) {
         closeBtn.addEventListener('click', function () {
-            this.closest('.modal-content').parentElement.style.display = 'none';
+            this.closest('.modal').style.display = 'none';
         });
     });
 
-    // Display saved citations on page load
     displaySavedCitations();
 });

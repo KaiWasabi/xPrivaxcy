@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>About Me</title>
-  <link rel="stylesheet" href="./style.css">
-  <!-- Import the Raleway font -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Raleway font -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Raleway:900&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
+  <!-- Full-Page Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation Bar -->
   <nav>
     <ul>
       <li><a href="https://www.kaiwatanabe.com" target="_self">Home</a></li>
@@ -16,40 +25,58 @@
     </ul>
   </nav>
 
-  <div id="container"></div>
-    <div id="nameContainer">
-      <span id="name"></span> <!-- Name (centered) -->
-      
-      <!-- Language Switcher under the name -->
-      <div id="languageSwitcher">
-        <button id="lang-en">English</button>
-        <button id="lang-jp">日本語</button>
-      </div>
+  <!-- Header: Name and Language Switch -->
+  <header id="pageHeader">
+    <h1 id="nameHeading">Kai Watanabe</h1>
+    <div id="languageSwitcher">
+      <button id="lang-en" aria-label="Switch to English">English</button>
+      <button id="lang-jp" aria-label="Switch to Japanese">日本語</button>
     </div>
+  </header>
 
-    <div id="contentContainer">
-      <h2 id="educationTitle">Education</h2>
-      <div id="education"></div> <!-- Education Section -->
+  <!-- Main Resume Container -->
+  <main id="resumeContainer"></main>
 
-      <h2 id="workHistoryTitle">Work History</h2>
-      <div id="workHistory"></div> <!-- Work History Section -->
+  <!-- Last Updated (moved up above footer) -->
+  <p id="lastUpdated"></p>
 
-      <h2 id="awardsTitle">Awards</h2>
-      <div id="awards"></div> <!-- Awards Section -->
-
-      <h2 id="certificationsTitle">Certifications</h2>
-      <div id="certifications"></div> <!-- Certifications Section -->
-    
-      <h2 id="publicationsTitle">Publications</h2>
-      <span id="publications"></span> <!-- Publications -->
-    </div>
-  </div>
-
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer>
     <p>© 2024 Kai Watanabe. All rights reserved.</p>
   </footer>
 
+  <!-- Main Script -->
   <script src="./script.js"></script>
+
+  <!-- Particles.js from a CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+  <script>
+    /* Full-page particles config */
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.7 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 4 }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>

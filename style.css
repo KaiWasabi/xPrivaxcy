@@ -1,95 +1,94 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:900&display=swap');
-
-body {
+:root {
+    /* Color Variables */
+    --nav-background: #0B1736; /* Dark navy background */
+    --nav-hover: #20346F;      /* Lighter navy on hover */
+    --accent-color: #00A8E8;   /* Vivid accent (bright cyan) */
+    --text-color: #ffffff;     /* White text for nav and top elements */
+    --body-bg: #ffffff;        /* Fallback background if needed */
+  }
+  
+  * {
     margin: 0;
-    height: 100vh;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-nav {
-    width: 100%;
-    background-color: #333;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* Particle Background (full screen) */
+  #particles-js {
     position: fixed;
     top: 0;
-    z-index: 1000;
-    font-family: 'Raleway', sans-serif;
-}
-
-nav ul {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind all content */
+    background: var(--nav-background);
+  }
+  
+  nav {
+    width: 100%;
+    background-color: var(--nav-background);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     justify-content: center;
-}
-
-nav ul li {
+  }
+  nav ul li {
     margin: 0 20px;
-}
-
-nav ul li a {
+  }
+  nav ul li a {
     display: block;
     padding: 14px 20px;
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 18pt;
     transition: background-color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    background-color: #555;
-}
-
+  }
+  nav ul li a:hover {
+    background-color: var(--nav-hover);
+  }
+  
+  
+/* Ensure the container spans the full viewport below the navbar */
+/* Main Container (using Flexbox for centering) */
 #container {
-    margin-top: 60px; /* Offset for the fixed navigation bar */
-    width: 80%; /* Reduced width for earlier text wrapping */
-    max-width: 900px;
-    height: calc(100vh - 60px);
+    margin-top: 70px; /* Offset for fixed nav bar */
+    width: 100%;
+    height: calc(100vh - 70px);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     text-align: center;
-    padding: 0 20px;
-}
-
-#text1 {
-	width: 100%;
-	text-align: center;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	font-weight: 900;
-	font-family: 'Raleway', sans-serif; /* Use the Raleway font from Google Fonts */
-	font-size: 4rem; /* Adjust this value to make the text larger as needed */
   }
   
-  body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  #text1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
   }
   
+  
+  
+  /* Cursor Blink Animation */
   #cursor {
-	font-weight: normal;
-	font-family: inherit; /* Keep the cursor font consistent with the text */
-	animation: blink 1s step-start infinite; /* Add blink animation */
+    font-weight: normal;
+    font-family: inherit;
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
   }
   
-  @keyframes blink {
-	50% {
-	  opacity: 0;
-	}
-  }
-
-.emphasized {
-    font-style: italic;
-    text-decoration: underline;
-}

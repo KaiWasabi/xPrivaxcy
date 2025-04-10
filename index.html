@@ -9,18 +9,56 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3578807727190103" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Full-Page Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation Bar -->
   <nav>
     <ul>
-		<li><a href="#" id="homeLink">Home</a></li>
-		<li><a href="https://www.kaiwatanabe.com/about" target="_self">About Me</a></li>
-		<li><a href="https://www.kaiwatanabe.com/AGLC" target="_self">AGLC</a></li>
+      <li><a href="#" id="homeLink">Home</a></li>
+      <li><a href="https://www.kaiwatanabe.com/about" target="_self">About Me</a></li>
+      <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self">AGLC</a></li>
     </ul>
   </nav>
 
+  <!-- Main Container for Animated Text -->
   <div id="container">
     <span id="text1"></span>
   </div>
 
   <script src="./script.js"></script>
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+  <script>
+    // Full-page particles configuration
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.7 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 4 }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>
