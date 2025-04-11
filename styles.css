@@ -1,0 +1,537 @@
+:root {
+  --bg-dark: #000000;
+  --bg-medium: #1d1d1f;
+  --primary-color: #0071e3;
+  --secondary-color: #06c;
+  --accent-light: #f5f5f7;
+  --text-color: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --nav-bg: rgba(0, 0, 0, 0.8);
+  --nav-hover: rgba(245, 245, 247, 0.05);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  overflow-x: hidden;
+  height: 100%;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+/* Gradient Background */
+.gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
+  z-index: -3;
+}
+
+/* Particle Background */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Navigation Bar */
+nav {
+  width: 100%;
+  background-color: var(--nav-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 14px 0;
+  letter-spacing: -0.02em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 14px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  background-color: var(--nav-hover);
+}
+
+/* Header: Name and Language Switch */
+#pageHeader {
+  margin-top: 90px;
+  text-align: center;
+  padding: 20px;
+}
+
+#nameHeading {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  letter-spacing: -0.03em;
+  transition: opacity 0.5s ease;
+}
+
+/* Apple-style language switcher */
+#languageSwitcher {
+  display: inline-flex;
+  background-color: rgba(60, 60, 67, 0.18);
+  border-radius: 8px;
+  padding: 2px;
+  margin: 10px auto 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+#languageSwitcher button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0;
+  min-width: 90px;
+  transition: color 0.3s ease;
+  border-radius: 6px;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+}
+
+#languageSwitcher button.active {
+  color: #000;
+  font-weight: 500;
+}
+
+#languageSwitcher::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(50% - 4px);
+  height: calc(100% - 4px);
+  background-color: white;
+  border-radius: 6px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+#languageSwitcher.jp::after {
+  transform: translateX(100%);
+}
+
+/* Personal Headline with improved transition */
+#personalHeadline {
+  max-width: 800px;
+  min-height: 80px; /* Fixed height to prevent layout shifts */
+  margin: 0 auto 20px;
+  padding: 15px 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+/* Social Media Icons - completely redesigned with !important */
+#socialIcons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin: 20px auto !important;
+  max-width: 800px !important;
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+.social-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px !important;
+  height: 50px !important;
+  background-color: rgba(60, 60, 67, 0.7) !important;
+  color: white !important;
+  border-radius: 50% !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  font-size: 24px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  margin: 0 10px !important;
+}
+
+.social-icon:hover {
+  background-color: var(--primary-color) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.social-icon i {
+  font-size: 24px !important;
+  color: white !important;
+}
+
+/* Main Resume Container */
+#resumeContainer {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto 60px;
+  background-color: var(--card-bg);
+  color: #333;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 30px var(--card-shadow);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(5px);
+}
+
+/* Resume Header: Download Button */
+#resumeHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.downloadButton {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.downloadButton:hover {
+  background-color: #0062c3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Collapsible Sections - completely redesigned */
+section {
+  margin-bottom: 16px !important;
+}
+
+details {
+  background-color: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  margin-bottom: 16px !important;
+  color: #333 !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03) !important;
+}
+
+details:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+details summary {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  padding: 16px 20px !important;
+  position: relative !important;
+  outline: none !important;
+  list-style: none !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* Remove default arrow */
+details summary::-webkit-details-marker {
+  display: none !important;
+}
+
+/* Custom arrow using ::after pseudo-element */
+details summary::after {
+  content: "" !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-right: 2px solid var(--primary-color) !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+  transform: rotate(45deg) !important;
+  transition: transform 0.3s ease !important;
+  position: relative !important;
+  right: 10px !important;
+}
+
+details[open] summary {
+  background-color: rgba(0, 113, 227, 0.05) !important;
+}
+
+details[open] summary::after {
+  transform: rotate(-135deg) !important;
+}
+
+/* Content styling with enhanced animation */
+.details-content {
+  padding: 0 20px !important;
+  overflow: hidden !important;
+}
+
+.details-content ul {
+  padding-left: 20px !important;
+  margin-top: 10px !important;
+}
+
+.details-content li {
+  margin-bottom: 8px !important;
+  line-height: 1.5 !important;
+}
+
+.details-content p {
+  margin: 10px 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* Last Updated */
+#lastUpdated {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 20px auto;
+}
+
+/* Footer */
+footer {
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav ul {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+
+  #nameHeading {
+    font-size: 2.5rem;
+  }
+
+  #resumeContainer {
+    padding: 20px;
+    width: 95%;
+  }
+
+  details summary {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  #personalHeadline {
+    font-size: 1rem;
+    padding: 12px 15px;
+    min-height: 100px;
+  }
+
+  #socialIcons {
+    gap: 15px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  #nameHeading {
+    font-size: 2rem;
+  }
+
+  #languageSwitcher button {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 80px;
+  }
+
+  .downloadButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  #personalHeadline {
+    font-size: 0.9rem;
+    padding: 10px;
+    min-height: 120px;
+  }
+
+  #socialIcons {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .social-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  details summary {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  .details-content {
+    font-size: 14px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+  #nameHeading {
+    font-size: 1.8rem;
+  }
+
+  #personalHeadline {
+    min-height: 140px;
+    font-size: 0.85rem;
+  }
+
+  #languageSwitcher button {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+
+  .social-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
+/* Headline animation container */
+.headline-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.headline-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.headline-text.entering {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.headline-text.exiting {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.headline-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}

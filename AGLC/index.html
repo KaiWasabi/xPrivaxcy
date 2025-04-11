@@ -7,26 +7,31 @@
   <meta name="google-adsense-account" content="ca-pub-3578807727190103">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3578807727190103" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Cyber Particle Background -->
+  <!-- Gradient Background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Particles Background -->
   <div id="particles-js"></div>
 
   <!-- Navigation Bar -->
   <nav>
-    <ul>
-      <li><a href="https://www.kaiwatanabe.com" target="_self">Home</a></li>
-      <li><a href="https://www.kaiwatanabe.com/about" target="_self">About Me</a></li>
-      <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self">AGLC</a></li>
-    </ul>
+    <div class="nav-container">
+      <div class="logo">Kai Watanabe</div>
+      <ul>
+        <li><a href="https://www.kaiwatanabe.com" target="_self" class="nav-link">Home</a></li>
+        <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self" class="nav-link">AGLC</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Main Container (using ID "container" for proper centering) -->
+  <!-- Main Container -->
   <div id="container">
-    <h1>Kai's AGLC Citation Generator</h1>
+    <h1>AGLC Citation Generator</h1>
     <p class="disclaimer-note">By continuing to use this tool, you agree to the disclaimer.</p>
-    <!-- (Feedback email text has been removed) -->
 
     <form id="citation-form">
       <label for="source-type">Source Type <span class="required">*</span>:</label>
@@ -45,7 +50,6 @@
         <option value="encyclopedia">Encyclopedia/Dictionary Entry</option>
       </select>
 
-      <!-- (All the citation-fields sections remain unchanged.) -->
       <!-- Domestic Case Fields -->
       <div id="case-domestic-fields" class="citation-fields">
           <label for="case-domestic-name">Case Name <span class="required">*</span>:</label>
@@ -66,7 +70,7 @@
           <label for="case-domestic-court">Court <span class="required">*</span>:</label>
           <input type="text" id="case-domestic-court" name="case-domestic-court" required>
 
-          <label>
+          <label class="checkbox-label">
               <input type="checkbox" id="case-domestic-pinpoint-toggle"> Add Pinpoint Reference
           </label>
 
@@ -99,7 +103,7 @@
           <label for="case-international-court">Court/Tribunal <span class="required">*</span>:</label>
           <input type="text" id="case-international-court" name="case-international-court" required>
 
-          <label>
+          <label class="checkbox-label">
               <input type="checkbox" id="case-international-pinpoint-toggle"> Add Pinpoint Reference
           </label>
 
@@ -129,7 +133,7 @@
           <label for="book-publisher">Publisher <span class="required">*</span>:</label>
           <input type="text" id="book-publisher" name="book-publisher" required>
 
-          <label>
+          <label class="checkbox-label">
               <input type="checkbox" id="book-pinpoint-toggle"> Add Pinpoint Reference
           </label>
 
@@ -159,7 +163,7 @@
           <label for="journal-page">Starting Page <span class="required">*</span>:</label>
           <input type="text" id="journal-page" name="journal-page" required>
 
-          <label>
+          <label class="checkbox-label">
               <input type="checkbox" id="journal-pinpoint-toggle"> Add Pinpoint Reference
           </label>
 
@@ -180,7 +184,7 @@
           <label for="legislation-jurisdiction">Jurisdiction <span class="required">*</span>:</label>
           <input type="text" id="legislation-jurisdiction" name="legislation-jurisdiction" required>
 
-          <label>
+          <label class="checkbox-label">
               <input type="checkbox" id="legislation-pinpoint-toggle"> Add Pinpoint Reference
           </label>
 
@@ -302,22 +306,28 @@
       </div>
 
       <!-- Buttons and Citation Display -->
-      <button type="button" id="generate-citation" onclick="generateCitation()">Generate Citation</button>
+      <div class="button-group">
+        <button type="button" id="generate-citation" onclick="generateCitation()">Generate Citation</button>
+      </div>
 
       <div id="citation-result">
           <h2>Your Citation:</h2>
           <p id="generated-citation"></p>
       </div>
 
-      <button type="button" id="save-citation" onclick="saveCitation()">Save Citation</button>
-      <span class="save-explanation">(Saving a citation adds it to a list for later export)</span>
+      <div class="button-group">
+        <button type="button" id="save-citation" onclick="saveCitation()">Save Citation</button>
+        <span class="save-explanation">(Saving a citation adds it to a list for later export)</span>
+      </div>
     </form>
 
     <div id="saved-citations">
         <h2>Saved Citations:</h2>
         <ul id="citation-list"></ul>
-        <button type="button" onclick="exportCitations()">Export Citations</button>
-        <button type="button" class="clear" onclick="clearCitations()">Clear Saved Citations</button>
+        <div class="button-group">
+          <button type="button" class="export-button" onclick="exportCitations()">Export Citations</button>
+          <button type="button" class="clear-button" onclick="clearCitations()">Clear Saved Citations</button>
+        </div>
     </div>
   </div>
 
@@ -341,7 +351,7 @@
           <p>
             We believe that privacy is a fundamental human right. This tool stores citation data locally in your browser only; no data is transmitted or shared externally. For more details, please visit our <a href="https://www.kaiwatanabe.com/aglcprivacy" target="_blank">privacy page</a>.
           </p>
-          <button onclick="closePrivacyPolicy()">Close</button>
+          <button>Close</button>
       </div>
   </div>
 
@@ -352,39 +362,12 @@
           <p>
             This website is designed to be lightweight and accessible, ensuring equitable access for users on slower connections and lower-end devices. It is provided free of charge.
           </p>
-          <button onclick="closeEquityStatement()">Close</button>
+          <button>Close</button>
       </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#ffffff" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.7 },
-        "size": { "value": 3, "random": true },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": { "enable": true, "speed": 4 }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "resize": true
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
 </body>
 </html>
