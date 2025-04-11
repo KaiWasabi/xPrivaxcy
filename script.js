@@ -4,7 +4,7 @@ const englishContent = {
     headline:
       "I'm a driven law student skilled in legal research, digital transformation, and dispute resolution, committed to innovation, privacy, and sustainability.",
     downloadLabel: "Download Resume",
-    resumeUrl: "https://example.com/resume-en.pdf", // Placeholder URL
+    resumeUrl: "https://www.kaiwatanabe.com/404", // Placeholder URL
     sections: {
       Education: [
         "LL.B., Australian National University, 2024 - Present.",
@@ -46,7 +46,7 @@ const englishContent = {
     headline:
       "法律リサーチ、デジタル変革、紛争解決に強みを持ち、革新性、プライバシー保護、持続可能性を重視する法学専攻の学生です。",
     downloadLabel: "履歴書をダウンロード",
-    resumeUrl: "https://example.com/resume-jp.pdf", // Placeholder URL
+    resumeUrl: "https://www.kaiwatanabe.com/404", // Placeholder URL
     sections: {
       学歴: ["法学士号、オーストラリア国立大学、2024年〜現在.", "刑事司法学、ペンシルバニア州立大学、2022年〜2023年"],
       職歴: [
