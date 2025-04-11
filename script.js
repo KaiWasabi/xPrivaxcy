@@ -44,7 +44,7 @@ const englishContent = {
 const japaneseContent = {
   name: "渡部　帆",
   headline:
-    "オーストラリア国立大学の法学生。刑事司法の背景を持ち、プライバシー、セキュリティ、国際関係に情熱を注いでいます。",
+    "法律リサーチ、デジタル変革、紛争解決に強みを持ち、革新性、プライバシー保護、持続可能性を重視する法学専攻の学生です。",
   downloadLabel: "履歴書をダウンロード",
   resumeUrl: "https://example.com/resume-jp.pdf", // Placeholder URL
   sections: {
