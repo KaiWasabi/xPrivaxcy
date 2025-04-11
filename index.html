@@ -5,9 +5,9 @@
   <title>Kai Watanabe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome removed to avoid adblocker issues -->
 </head>
 <body>
   <!-- Gradient Background -->
@@ -34,19 +34,35 @@
     <!-- Headline section -->
     <div id="personalHeadline"></div>
     
-    <!-- Social Media Icons - completely redesigned -->
-    <div id="socialIcons" style="display: flex; justify-content: center; margin: 20px auto;">
-      <a href="https://x.com/kaiw_jp" class="social-icon" style="margin: 0 10px; display: inline-block;">
-        <i class="fab fa-x" style="font-size: 24px;"></i>
+    <!-- Social Media Icons - replaced with custom SVG implementation -->
+    <div id="socialIcons" class="social-icons-container">
+      <a href="https://x.com/kaiw_jp" class="social-icon" aria-label="Twitter/X">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18" />
+          <path d="M6 6L18 18" />
+        </svg>
       </a>
-      <a href="https://note.com/kaiwasabi" class="social-icon" style="margin: 0 10px; display: inline-block;">
-        <i class="fas fa-sticky-note" style="font-size: 24px;"></i>
+      <a href="https://note.com/kaiwasabi" class="social-icon" aria-label="Note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <polyline points="10 9 9 9 8 9" />
+        </svg>
       </a>
-      <a href="https://www.linkedin.com/in/kwsb/" class="social-icon" style="margin: 0 10px; display: inline-block;">
-        <i class="fab fa-linkedin-in" style="font-size: 24px;"></i>
+      <a href="https://www.linkedin.com/in/kwsb/" class="social-icon" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
       </a>
-      <a href="mailto:contact@kaiwatanabe.com" class="social-icon" style="margin: 0 10px; display: inline-block;">
-        <i class="fas fa-envelope" style="font-size: 24px;"></i>
+      <a href="mailto:contact@kaiwatanabe.com" class="social-icon" aria-label="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
       </a>
     </div>
     
