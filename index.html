@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <title>Kai Watanabe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of Kai Watanabe, law student skilled in legal research, digital transformation, and dispute resolution.">
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="./styles.css" as="style">
+  <link rel="preload" href="./icons.css" as="style">
+  <link rel="preload" href="./script.js" as="script">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome removed to avoid adblocker issues -->
 </head>
 <body>
   <!-- Gradient Background -->
@@ -31,19 +39,25 @@
   <header id="pageHeader">
     <h1 id="nameHeading">Kai Watanabe</h1>
     
+    <!-- Apple-style language switcher -->
+    <div id="languageSwitcher">
+      <button id="lang-en" aria-label="Switch to English">English</button>
+      <button id="lang-jp" aria-label="Switch to Japanese">日本語</button>
+    </div>
+    
     <!-- Headline section -->
     <div id="personalHeadline"></div>
     
     <!-- Social Media Icons - replaced with custom SVG implementation -->
     <div id="socialIcons" class="social-icons-container">
       <a href="https://x.com/kaiw_jp" class="social-icon" aria-label="Twitter/X">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 6L6 18" />
           <path d="M6 6L18 18" />
         </svg>
       </a>
       <a href="https://note.com/kaiwasabi" class="social-icon" aria-label="Note">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="16" y1="13" x2="8" y2="13" />
@@ -52,24 +66,18 @@
         </svg>
       </a>
       <a href="https://www.linkedin.com/in/kwsb/" class="social-icon" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
           <rect x="2" y="9" width="4" height="12" />
           <circle cx="4" cy="4" r="2" />
         </svg>
       </a>
       <a href="mailto:contact@kaiwatanabe.com" class="social-icon" aria-label="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
           <polyline points="22,6 12,13 2,6" />
         </svg>
       </a>
-    </div>
-    
-    <!-- Apple-style language switcher -->
-    <div id="languageSwitcher">
-      <button id="lang-en" aria-label="Switch to English">English</button>
-      <button id="lang-jp" aria-label="Switch to Japanese">日本語</button>
     </div>
   </header>
 
@@ -84,92 +92,95 @@
     <p>© 2025 Kai Watanabe. All rights reserved.</p>
   </footer>
 
-  <!-- Main Script -->
-  <script src="./script.js"></script>
+  <!-- Main Script - defer loading -->
+  <script src="./script.js" defer></script>
 
-  <!-- Particles.js Library -->
-  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
-  <script>
-    // Full-page particles configuration
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 40,
-          "density": { "enable": true, "value_area": 800 }
-        },
-        "color": { 
-          "value": ["#f5f5f7", "#a1a1a6", "#d2d2d7"]
-        },
-        "shape": { 
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": { 
-          "value": 0.3,
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 0.3,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": { 
-          "value": 2,
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 0.5,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#a1a1a6",
-          "opacity": 0.2,
-          "width": 1
-        },
-        "move": { 
-          "enable": true,
-          "speed": 1,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { 
-            "enable": true,
-            "mode": "grab"
+  <!-- Particles.js Library - load at end of body with defer -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
+  <script defer>
+    // Initialize particles after the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Full-page particles configuration
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 30, /* Reduced for better performance */
+            "density": { "enable": true, "value_area": 800 }
           },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
+          "color": { 
+            "value": ["#f5f5f7", "#a1a1a6", "#d2d2d7"]
           },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 140,
-            "line_linked": {
-              "opacity": 0.4
+          "shape": { 
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
             }
           },
-          "push": {
-            "particles_nb": 2
+          "opacity": { 
+            "value": 0.3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.3,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": { 
+            "value": 2,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.5,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#a1a1a6",
+            "opacity": 0.2,
+            "width": 1
+          },
+          "move": { 
+            "enable": true,
+            "speed": 0.8, /* Reduced for better performance */
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false
           }
-        }
-      },
-      "retina_detect": true
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { 
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 0.4
+              }
+            },
+            "push": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
     });
   </script>
 </body>
