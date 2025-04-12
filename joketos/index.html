@@ -1,142 +1,727 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions of Joke Engagement</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #f8f8f8, #f0f0f0);
-            color: #333;
-            margin: 0;
-            padding: 0 10px;
-        }
+  <meta charset="UTF-8">
+  <title>Terms and Conditions of Joke Engagement | Kai Watanabe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Humorous Terms and Conditions of Joke Engagement by Kai Watanabe">
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+  
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Root variables - matching main site */
+    :root {
+      --bg-dark: #000000;
+      --bg-medium: #1d1d1f;
+      --primary-color: #0071e3;
+      --secondary-color: #06c;
+      --accent-light: #f5f5f7;
+      --text-color: #f5f5f7;
+      --text-secondary: #a1a1a6;
+      --nav-bg: rgba(0, 0, 0, 0.8);
+      --nav-hover: rgba(245, 245, 247, 0.05);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(0, 0, 0, 0.1);
+      --card-shadow: rgba(0, 0, 0, 0.1);
+    }
 
-        header {
-            background-color: #111;
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header h1 {
-            font-size: 2.7em;
-            margin: 0;
-        }
+    html, body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-color);
+      overflow-x: hidden;
+      height: 100%;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
 
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+    /* Gradient Background */
+    .gradient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
+      z-index: -3;
+    }
 
-        h2 {
-            color: #111;
-            font-size: 1.5em;
-        }
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
-        p, li {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.8;
-        }
+    /* Navigation Bar */
+    nav {
+      width: 100%;
+      background-color: var(--nav-bg);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
 
-        ul {
-            margin-top: 0.5em;
-            padding-left: 1.5em;
-        }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        #darkHumorDisclaimer {
-            background-color: #ffe6e6;
-            border-left: 6px solid #ff4d4d;
-            padding: 20px;
-            margin-top: 20px;
-        }
+    .logo {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-color);
+      padding: 14px 0;
+      letter-spacing: -0.02em;
+    }
 
-        footer {
-            text-align: center;
-            background-color: #222;
-            color: #ccc;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-    </style>
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 14px 20px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+      background-color: var(--nav-hover);
+    }
+
+    /* Social icons styling */
+    .social-icons-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px auto;
+      max-width: 800px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background-color: rgba(60, 60, 67, 0.7);
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-icon:hover {
+      background-color: #0071e3;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-icon svg {
+      width: 28px;
+      height: 28px;
+      color: white;
+      stroke: white;
+      fill: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--nav-bg);
+      color: var(--text-color);
+      text-align: center;
+      padding: 15px 0;
+      position: relative;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    
+    .footer-note {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 10px 0 5px;
+      font-style: italic;
+    }
+
+    /* TOS specific styles */
+    .tos-container {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 900px;
+      margin: 120px auto 60px;
+      background-color: var(--card-bg);
+      color: #333;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 30px var(--card-shadow);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(5px);
+    }
+    
+    .tos-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .tos-header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: -0.03em;
+    }
+    
+    .tos-section {
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding-bottom: 20px;
+    }
+    
+    .tos-section:last-child {
+      border-bottom: none;
+    }
+    
+    .tos-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    .tos-section p, .tos-section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    
+    .tos-section ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    #darkHumorDisclaimer {
+      background-color: rgba(255, 77, 77, 0.1);
+      border-left: 4px solid #ff4d4d;
+      padding: 15px 20px;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    
+    #darkHumorDisclaimer h2 {
+      color: #d32f2f;
+    }
+    
+    .easter-egg {
+      font-size: 0.85rem;
+      color: #888;
+      font-style: italic;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+      margin-top: 15px;
+    }
+    
+    .highlight-box {
+      background-color: rgba(0, 113, 227, 0.08);
+      border-left: 4px solid var(--primary-color);
+      padding: 15px 20px;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: row;
+        padding: 10px;
+      }
+
+      nav ul {
+        width: auto;
+        justify-content: flex-end;
+      }
+
+      .nav-link {
+        padding: 10px 15px;
+        font-size: 15px;
+      }
+      
+      .tos-container {
+        padding: 20px;
+        margin-top: 100px;
+      }
+      
+      .tos-header h1 {
+        font-size: 2rem;
+      }
+      
+      .tos-section h2 {
+        font-size: 1.3rem;
+      }
+      
+      .social-icons-container {
+        gap: 20px;
+      }
+
+      .social-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .social-icon svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-container {
+        padding: 8px 15px;
+      }
+      
+      .logo {
+        font-size: 16px;
+      }
+      
+      .nav-link {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+      
+      .tos-container {
+        width: 95%;
+        padding: 15px;
+        margin-top: 90px;
+      }
+      
+      .tos-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .tos-section h2 {
+        font-size: 1.2rem;
+      }
+      
+      .tos-section p, .tos-section li {
+        font-size: 0.95rem;
+      }
+      
+      .social-icons-container {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .social-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .social-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+    
+    @media (max-width: 320px) {
+      .nav-container {
+        padding: 5px 10px;
+      }
+      
+      .logo {
+        font-size: 14px;
+      }
+      
+      .nav-link {
+        padding: 8px 6px;
+        font-size: 12px;
+      }
+      
+      .social-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .social-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Gradient Background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
 
-<header>
-    <h1>Terms and Conditions of Joke Engagement</h1>
-</header>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Kai Watanabe</div>
+      <ul>
+        <li><a href="https://www.kaiwatanabe.com" target="_self" class="nav-link">Home</a></li>
+        <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self" class="nav-link">AGLC</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<section>
-    <h2>1. Definitions</h2>
-    <p>For the purposes of this document, which you are likely not reading unless you're legally bored or just nosy, the following definitions shall apply:</p>
-    <p><strong>"Jokes"</strong>: Any arrangement of words, gestures, memes, or comedic phenomena intended to elicit laughter, chuckles, snorts, nose-exhales, or catastrophic silence. Includes, but is not limited to, puns, absurdities, ironies, and occasional existential dread masked in humor.</p>
-    <p><strong>"Provider"</strong>: The legally unqualified, socially questionable source of aforementioned Jokes—may also be referred to as "me" in less formal contracts or DMs.</p>
-    <p><strong>"User"</strong>: The unlucky individual who reads, hears, or is exposed to the Jokes. This includes scrollers, lurkers, followers, enemies, and people who laugh just to be polite.</p>
-    <p><strong>"Engagement"</strong>: Any act of attention, response, or passive absorption of the Jokes, whether voluntary, accidental, or under peer pressure.</p>
-    <p><strong>"Dark Humor"</strong>: Material designed to poke at life’s darker corners—mortality, societal hypocrisy, or whatever Freud would've side-eyed. May or may not cause laughter followed by guilt, followed by laughter again.</p>
-</section>
+  <!-- Main Content -->
+  <main class="tos-container">
+    <div class="tos-header">
+      <h1>Terms and Conditions of Joke Engagement</h1>
+      <p style="color: #666; margin-top: 10px;">Version 4.20.69 — Last Updated: When We Felt Like It</p>
+    </div>
 
-<section id="darkHumorDisclaimer">
-    <h2>2. Dark Humor Disclaimer</h2>
-    <p>By proceeding to consume, acknowledge, or mentally replay any Jokes classified or misclassified as "Dark Humor," the User agrees that some content may be considered wildly inappropriate in polite company, most funerals, or HR training. The Provider is not responsible for emotional, psychological, or cosmological crises induced by such content. If you're crying and laughing at the same time, you're welcome.</p>
-</section>
+    <div class="tos-section">
+      <h2>0. Preamble to Humor</h2>
+      <p>WHEREAS, the Provider (hereinafter referred to as "me," "myself," "the individual responsible for these words," or "the comedy genius you don't deserve") has determined that legal documents are insufferably boring, unnecessarily complex, and deliberately designed to discourage actual reading; and</p>
+      <p>WHEREAS, the User (hereinafter referred to as "you," "the poor soul reading this," "person with questionable time-management skills," or "individual who has clearly exhausted all other entertainment options including watching paint dry") has somehow found themselves reading a joke terms of service document when they could be engaging in literally any other activity; and</p>
+      <p>WHEREAS, both parties acknowledge that life is too short for actual legalese but just long enough for parodied legalese that serves no practical purpose whatsoever except to amuse and/or confuse;</p>
+      <p>WHEREAS, the Provider has taken it upon themselves to create this unnecessarily verbose document despite having no legal training whatsoever beyond watching courtroom dramas and occasionally arguing with strangers on the internet;</p>
+      <p>NOW, THEREFORE, in consideration of the mutual covenants contained herein and other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, though neither party is actually receiving anything of value except perhaps a mild chuckle, the parties agree as follows:</p>
+    </div>
 
-<section>
-    <h2>3. Acceptance of Terms</h2>
-    <ul>
-        <li>By scrolling, reading, chuckling, or even blinking in proximity to these Jokes, you accept all stated and unstated conditions within this Agreement.</li>
-        <li>The Provider offers no guarantee of humor efficacy, cultural appropriateness, or meme relatability beyond the year 2016.</li>
-        <li>By laughing—even internally—you waive any rights to whine, cancel, sue, or subtweet in outrage.</li>
-        <li>Failure to read these terms does not exempt you from their binding force, because ignorance of satire is no excuse in meme court.</li>
-    </ul>
-</section>
+    <div class="tos-section">
+      <h2>1. Definitions</h2>
+      <p>For the purposes of this document, which you are likely not reading unless you're legally bored, pathologically curious, or just nosy, the following definitions shall apply with excessive specificity and unnecessary elaboration:</p>
+      <p><strong>"Jokes"</strong>: Any arrangement of words, gestures, memes, or comedic phenomena intended to elicit laughter, chuckles, snorts, nose-exhales, or catastrophic silence. Includes, but is not limited to, puns, absurdities, ironies, and occasional existential dread masked in humor. May also include statements that were not intended to be funny but were received as such due to poor delivery, cultural misunderstandings, or the general absurdity of human existence.</p>
+      <p><strong>"Provider"</strong>: The legally unqualified, socially questionable source of aforementioned Jokes—may also be referred to as "me" in less formal contracts or DMs. The Provider makes no claims of comedic expertise, originality, or good taste, and acknowledges that many of their Jokes were likely overheard at parties, subconsciously absorbed from sitcoms, or dreamed up during particularly boring meetings.</p>
+      <p><strong>"User"</strong>: The unlucky individual who reads, hears, or is exposed to the Jokes. This includes scrollers, lurkers, followers, enemies, people who laugh just to be polite, individuals who happened to be in the wrong place at the wrong time, and those who mistakenly thought they were clicking on something else entirely. The User is presumed to have at least a rudimentary sense of humor, though this presumption is rebuttable upon presentation of evidence to the contrary.</p>
+      <p><strong>"Engagement"</strong>: Any act of attention, response, or passive absorption of the Jokes, whether voluntary, accidental, coerced, or under peer pressure. Engagement may range from active participation (e.g., laughing, sharing, responding) to passive acknowledgment (e.g., slight smile, internal eye-roll, existential questioning of how you ended up here reading this).</p>
+      <p><strong>"Dark Humor"</strong>: Material designed to poke at life's darker corners—mortality, societal hypocrisy, or whatever Freud would've side-eyed. May or may not cause laughter followed by guilt, followed by laughter again, followed by checking over your shoulder to ensure no one witnessed your momentary moral lapse. Dark humor is like electricity—most effective when properly grounded.</p>
+      <p><strong>"Dad Joke"</strong>: A form of humor characterized by its predictability, simplicity, and ability to make teenagers roll their eyes so hard they can see their own brains. Often preceded by "Hi Hungry, I'm Dad." Dad jokes are the comedic equivalent of wearing socks with sandals—objectively terrible yet somehow endearing in their commitment to uncoolness.</p>
+      <p><strong>"Meme"</strong>: A digital artifact of questionable origin and even more questionable taste that somehow manages to encapsulate the collective consciousness of an entire generation using nothing but Impact font and a stock photo. Memes are the hieroglyphics of modern society, destined to confuse future archaeologists who will undoubtedly write doctoral theses attempting to explain why a picture of a distressed-looking woman yelling at a confused cat was considered the pinnacle of human communication.</p>
+      <p><strong>"Pun"</strong>: The lowest form of humor according to people who aren't clever enough to make them. A linguistic play on words that causes simultaneous groaning and admiration. Puns are the comedic equivalent of a surprise tax audit—nobody claims to want them, yet they persist with remarkable tenacity throughout human history.</p>
+      <p><strong>"Sarcasm"</strong>: A sophisticated form of wit in which the speaker says the opposite of what they mean, typically delivered with a distinctive tone that somehow still manages to be missed by approximately 37% of the population. Sarcasm is the unofficial language of the chronically disappointed and the perpetually unimpressed. In written form, it is frequently misinterpreted, leading to unnecessary arguments, clarifications, and the invention of the "/s" tag, which ruins the joke but prevents digital bloodshed.</p>
+      <p><strong>"Satire"</strong>: The art of making fun of something so accurately that people who don't get it think you're serious, and people who do get it worry about those who don't. Satire is humor's equivalent of a Trojan horse—it sneaks important commentary past your defenses by disguising itself as mere entertainment.</p>
+      
+      <div class="easter-egg">If you're still reading these definitions, you might be a lawyer, someone with an impressive attention to detail, or someone who genuinely enjoys reading instruction manuals for fun. We don't judge. Well, we do, but we're keeping those judgments to ourselves for now.</div>
+    </div>
 
-<section>
-    <h2>4. No Warranties</h2>
-    <ul>
-        <li>Provider expressly denies all warranties, express or implied, including but not limited to: emotional uplift, social acceptance, or any improvement in your dating prospects.</li>
-        <li>All Jokes are offered "as-is" and may contain traces of hyperbole, outdated references, and unsolicited nihilism.</li>
-    </ul>
-</section>
+    <div id="darkHumorDisclaimer" class="tos-section">
+      <h2>2. Dark Humor Disclaimer</h2>
+      <p>By proceeding to consume, acknowledge, or mentally replay any Jokes classified or misclassified as "Dark Humor," the User agrees that some content may be considered wildly inappropriate in polite company, most funerals, or HR training. The Provider is not responsible for emotional, psychological, or cosmological crises induced by such content. If you're crying and laughing at the same time, you're welcome.</p>
+      <p>Dark humor, like medicine, should be administered with care and only to those with sufficient psychological fortitude. Side effects may include uncomfortable truths, sudden realizations about mortality, and the urge to share inappropriately timed jokes at family gatherings. If you experience a moral crisis lasting more than four hours, please consult your local philosopher or therapist.</p>
+      <p>The Provider maintains that dark humor is like food in a famine—not everyone gets it. This is not to make light of famines, which are serious humanitarian crises, but rather to illustrate through inappropriately dark metaphor the very nature of dark humor itself, thus creating a self-referential example of the concept being explained, which is either clever meta-commentary or just lazy writing, depending on your perspective and how much coffee the Provider had consumed at the time of drafting.</p>
+      <p>Dark humor serves a vital psychological function in helping humans process the inherent absurdity and occasional horror of existence. Without it, we would be forced to confront the meaninglessness of life directly, which would significantly reduce productivity and almost certainly increase the sales of both ice cream and existentialist literature.</p>
+    </div>
 
-<section>
-    <h2>5. Limitation of Liability</h2>
-    <ul>
-        <li>Provider assumes no responsibility for injuries incurred while laughing, including face cramps, choking on coffee, or being escorted out of a library.</li>
-        <li>Social fallout due to repeating these Jokes in family gatherings or job interviews is your cross to bear.</li>
-        <li>Provider cannot be held liable for any existential spirals triggered mid-scroll. Meditate or hydrate as needed.</li>
-    </ul>
-</section>
+    <div class="tos-section">
+      <h2>3. Acceptance of Terms</h2>
+      <ul>
+        <li>By scrolling, reading, chuckling, or even blinking in proximity to these Jokes, you accept all stated and unstated conditions within this Agreement, including those that the Provider hasn't thought of yet but might retroactively claim were implied all along.</li>
+        <li>The Provider offers no guarantee of humor efficacy, cultural appropriateness, or meme relatability beyond the year 2016. All Jokes are deployed on an "as is" basis, with their comedic half-life diminishing in direct proportion to how many times they've been shared on social media.</li>
+        <li>By laughing—even internally—you waive any rights to whine, cancel, sue, or subtweet in outrage. This waiver extends to all jurisdictions, including but not limited to Twitter court, the court of public opinion, and your group chat where you dissect social faux pas with alarming precision.</li>
+        <li>Failure to read these terms does not exempt you from their binding force, because ignorance of satire is no excuse in meme court, which is a completely fictional legal entity that nonetheless wields more cultural influence than several actual Supreme Courts around the world.</li>
+        <li>If you've read this far, you're either a lawyer billing by the hour, someone with insomnia using this document as a sleep aid, or genuinely concerned about the legal implications of humor. In any case, we recommend finding a hobby that involves more fresh air and less reading of pointless documents.</li>
+        <li>These terms are binding in perpetuity, or until the heat death of the universe, whichever comes first (our money's on the latter, given current climate trends and the general trajectory of human decision-making). In the event of human extinction, these terms will continue to apply to any sentient cockroaches, artificial intelligences, or alien archaeologists who happen upon this document.</li>
+        <li>By continuing to read, you acknowledge that you could be doing something more productive with your time, like learning to play the theremin, organizing your sock drawer by thread count, or finally addressing that existential crisis you've been putting off since college. The opportunity cost of reading this document is entirely your responsibility.</li>
+        <li>The Provider reserves the right to modify these terms at any time for any reason, including but not limited to: boredom, spite, a sudden flash of what they believe to be comedic brilliance at 3 AM, or peer pressure from other joke terms of service writers, which is admittedly a very niche social group.</li>
+      </ul>
+    </div>
 
-<section>
-    <h2>6. Assumption of Risk</h2>
-    <p>By proceeding, the User assumes all risks associated with exposing themselves to humor that may challenge deeply held beliefs, social norms, and the illusion that we're all taking this life thing seriously. Side effects may include introspection, confusion, and the urge to laugh at things you absolutely shouldn’t. No refunds.</p>
-</section>
+    <div class="tos-section">
+      <h2>4. No Warranties</h2>
+      <ul>
+        <li>Provider expressly denies all warranties, express or implied, including but not limited to: emotional uplift, social acceptance, or any improvement in your dating prospects. In fact, excessive sharing of these Jokes may actively harm your dating prospects, though this could be correlation rather than causation—the Provider acknowledges that people who share too many jokes from the internet might have other qualities that potential romantic partners find concerning.</li>
+        <li>All Jokes are offered "as-is" and may contain traces of hyperbole, outdated references, and unsolicited nihilism. The Provider makes no guarantees regarding the freshness of any humor contained herein, and acknowledges that some Jokes may have already completed multiple circuits of the internet before being repurposed here, much like those plastic containers everyone uses to store leftovers that originally contained takeout from restaurants that have long since closed.</li>
+        <li>The Provider makes no guarantees regarding the quality, originality, or comedic value of any Joke. Some Jokes may have been previously used, recycled, upcycled, or stolen outright from that one funny person at your office who never gets proper credit for their wit. The Provider subscribes to the "there is nothing new under the sun" school of comedy, which is both a philosophical position and a convenient excuse for not coming up with original material.</li>
+        <li>Any resemblance to actual humor is purely coincidental and should not be construed as an indication of comedic talent. The Provider acknowledges that even a broken clock is right twice a day, and similarly, even the least funny person occasionally stumbles into a good joke through the law of large numbers and statistical probability.</li>
+        <li>The Provider does not warrant that these Jokes will be suitable for any particular purpose, including but not limited to: ice-breakers at awkward social gatherings, first date conversation starters, or material for your amateur stand-up routine at the local open mic night. Using these Jokes in high-stakes social situations is done entirely at the User's own risk, and the Provider disclaims all liability for uncomfortable silences that may ensue.</li>
+        <li>Jokes may lose effectiveness over time, much like that container of yogurt you forgot about in the back of your refrigerator. The Provider makes no guarantees regarding the shelf life of any particular Joke and acknowledges that humor, like fashion and technology, is subject to trends, obsolescence, and the inexplicable whims of collective taste.</li>
+        <li>The Provider does not warrant that these Jokes will be understood by all audiences. Some Jokes may require specific cultural, historical, or educational context that not all Users possess. The Provider is not responsible for explaining Jokes, as doing so inevitably ruins them, creating an awkward situation for everyone involved that is somehow worse than if the Joke had simply failed silently.</li>
+      </ul>
+      
+      <div class="easter-egg">Congratulations on reaching Section 4! You've now read more of this document than most people read their actual, legally-binding terms of service agreements, mortgage contracts, and possibly their own wedding vows. Your dedication to pointless thoroughness is both admirable and concerning. Perhaps consider channeling this remarkable focus into something that might appear on a resume.</div>
+    </div>
 
-<section>
-    <h2>7. User Conduct</h2>
-    <ul>
-        <li>User shall not dissect the Jokes in a manner that renders them clinically unfunny. This includes Reddit threads and philosophy majors.</li>
-        <li>Complaints about taste, tone, or timing must be sent to the void and will be acknowledged by the nearest raccoon.</li>
-        <li>Users agree that bad jokes are part of the ecosystem and shall be treated like rain: inconvenient but unavoidable.</li>
-    </ul>
-</section>
+    <div class="tos-section">
+      <h2>5. Limitation of Liability</h2>
+      <ul>
+        <li>Provider assumes no responsibility for injuries incurred while laughing, including face cramps, choking on coffee, or being escorted out of a library. Physical reactions to humor, including but not limited to spit-takes, falling out of chairs, or the legendary "laughing so hard you pull a muscle," are entirely the User's responsibility. The Provider recommends appropriate safety precautions when consuming humor, such as not reading jokes while drinking hot beverages, operating heavy machinery, or attending funerals.</li>
+        <li>Social fallout due to repeating these Jokes in family gatherings or job interviews is your cross to bear. The Provider acknowledges that humor is highly contextual, and what seems hilarious at 2 AM while scrolling through your phone may be considerably less amusing when recounted to your potential employer or future in-laws. Choose your audiences wisely.</li>
+        <li>Provider cannot be held liable for any existential spirals triggered mid-scroll. Meditate or hydrate as needed. The contemplation of one's own mortality, the meaninglessness of existence, or the inevitable heat death of the universe is an occasional side effect of good comedy and is considered a feature, not a bug. The Provider recommends having comfort snacks and/or a philosophical text of your choosing nearby when engaging with particularly thought-provoking humor.</li>
+        <li>The Provider shall not be held responsible for any damage to relationships, reputations, or career prospects resulting from the ill-timed deployment of these Jokes. Timing, as they say, is everything in comedy, and the Provider cannot be held accountable for the User's potential lack of social awareness or inability to read a room. Some Jokes are best kept to oneself, a principle the Provider ironically fails to follow by publishing this very document.</li>
+        <li>In no event shall the Provider be liable for any loss of dignity, self-respect, or social capital incurred through association with these Jokes. The decision to publicly acknowledge enjoyment of this particular brand of humor is made at the User's own risk, with full awareness that certain social circles may judge accordingly. The Provider suggests maintaining plausible deniability by always being ready to claim you were reading "ironically."</li>
+        <li>The Provider expressly disclaims responsibility for any awkward silences, uncomfortable pauses, or tumbleweed moments that may follow the delivery of these Jokes in social settings. Not all humor translates well from page to performance, and the Provider acknowledges that their writing may benefit from the User's internal voice adding inflections and timing that may be lost in verbal retelling.</li>
+        <li>Maximum liability for any damages arising from these Jokes is limited to one (1) sincere apology or one (1) sympathy laugh, at the Provider's sole discretion, which will likely be exercised in whatever manner requires the least effort and emotional vulnerability.</li>
+        <li>The Provider cannot be held responsible for any philosophical revelations, paradigm shifts, or sudden clarity regarding the absurdity of human existence that may occur while reading these terms. Such epiphanies, while occasionally life-changing, are considered standard side effects of engaging with meta-humor and self-referential comedy.</li>
+      </ul>
+    </div>
 
-<section>
-    <h2>8. Morality Clause</h2>
-    <p>Provider commits to deploying humor with some vague degree of moral compass. While lines may be tiptoed, hopped over, or occasionally cartwheeled across, content is not intended to target vulnerable communities, spread hate, or summon ancient gods.</p>
-    <p>Should any Joke be perceived as irreparably offensive, the Provider will perform a ritual of self-reflection (approx. 0.6 seconds), then carry on with life—possibly wiser, possibly not.</p>
-</section>
+    <div class="highlight-box">
+      <h3 style="color: var(--primary-color); margin-bottom: 10px;">Special Notice for the Chronically Serious</h3>
+      <p>If you've made it this far into the document and haven't cracked a smile, we regretfully inform you that you may be taking life a bit too seriously. Symptoms include furrowed brows while reading comedy, the inability to detect sarcasm, and a tendency to begin sentences with "Well, actually..." Please consider the possibility that humor, like stretching before exercise, is beneficial for your overall wellbeing and prevents the calcification of your personality into something resembling dried concrete.</p>
+      <p>The Provider suggests remedies including but not limited to: watching classic comedy films, spending time with small children or animals who haven't yet learned to be serious, or simply practicing the art of not having an opinion on absolutely everything. Remember that the ability to laugh, especially at oneself, is one of humanity's greatest evolutionary advantages over, say, a filing cabinet.</p>
+    </div>
 
-<footer>
-    &copy; 2024 Kai's Jokes. All rights reserved. No goats were harmed during the making of these terms. If you made it this far, you're either a lawyer or dangerously bored.
-</footer>
+    <div class="tos-section">
+      <h2>6. Assumption of Risk</h2>
+      <p>By proceeding, the User assumes all risks associated with exposing themselves to humor that may challenge deeply held beliefs, social norms, and the illusion that we're all taking this life thing seriously. Side effects may include introspection, confusion, and the urge to laugh at things you absolutely shouldn't. No refunds.</p>
+      <p>The User acknowledges that humor is subjective and what one person finds hilarious, another might find as entertaining as watching paint dry in slow motion while listening to a monotone reading of tax regulations. The Provider cannot be held responsible for differences in comedic taste, just as a chef cannot be blamed when someone prefers ketchup on filet mignon. Both are regrettable, but ultimately protected by the principles of free choice.</p>
+      <p>Users with a history of taking themselves too seriously should proceed with extreme caution. Exposure to humor may result in the dangerous realization that life is absurd and nothing really matters in the cosmic scale of things, which, while technically true, is not particularly helpful when trying to maintain the motivation to do your taxes or attend mandatory team-building exercises.</p>
+      <p>By continuing to engage with these Jokes, you accept the risk that you might actually develop a sense of humor, which could lead to decreased productivity, increased happiness, and the ability to see the world as the ridiculous circus it truly is. The Provider warns that once you start seeing the absurdity in everyday situations, it becomes significantly harder to take corporate mission statements, political speeches, or reality television seriously.</p>
+      <p>The User hereby acknowledges that laughter, while generally considered a positive force, can sometimes occur at inappropriate moments, leading to social discomfort, awkward explanations, and in extreme cases, being asked to leave funerals, important business meetings, or silent meditation retreats. The Provider bears no responsibility for the User's inability to suppress laughter at inopportune moments after exposure to these Jokes.</p>
+      <p>The User further acknowledges that humor, especially when written, may be misinterpreted, misattributed, or misappropriated by others who lack context or nuance. The Provider cannot be held responsible for how these Jokes might be received when shared secondhand, screenshot without context, or read aloud in a monotone voice that strips all intended irony from the delivery.</p>
+    </div>
 
+    <div class="tos-section">
+      <h2>7. User Conduct</h2>
+      <ul>
+        <li>User shall not dissect the Jokes in a manner that renders them clinically unfunny. This includes Reddit threads and philosophy majors. The Provider acknowledges that humor, like a frog, dies when dissected, no matter how educational the process might be.</li>
+        <li>Complaints about taste, tone, or timing must be sent to the void and will be acknowledged by the nearest raccoon. The Provider maintains a strict policy of selective hearing when it comes to criticism, a strategy developed through years of family holiday dinners and performance reviews.</li>
+        <li>Users agree that bad jokes are part of the ecosystem and shall be treated like rain: inconvenient but unavoidable. Without bad jokes, we would have no metric by which to measure good jokes, much like how one cannot truly appreciate daylight without having experienced darkness, or how one cannot truly appreciate good health without having experienced that time you ate gas station sushi.</li>
+        <li>Users shall not attempt to explain the Jokes to those who didn't get them the first time. Nothing kills humor faster than explanation, except perhaps a PowerPoint presentation about humor complete with pie charts analyzing punchline efficiency and bar graphs measuring audience response rates across demographic segments.</li>
+        <li>The practice of saying "no offense" before delivering clearly offensive Jokes does not exempt the User from social consequences, nor does it magically transform inappropriate content into acceptable banter. This is equivalent to saying "no fire" before committing arson—the disclaimer does not negate the action.</li>
+        <li>Users who respond to Jokes with "I don't get it" more than three (3) times in a single conversation may be subject to a mandatory viewing of "Comedy for Beginners" or equivalent remedial humor education. The Provider acknowledges that some people are born without a sense of humor, much like some people are born without a sense of direction, and both conditions deserve our sympathy rather than our scorn.</li>
+        <li>The stealing of Jokes without proper attribution is frowned upon but realistically expected. If you must steal, at least have the decency to mumble "as they say" afterward, thereby acknowledging that you are not the originator of the wit while simultaneously being too lazy to properly credit the source.</li>
+        <li>Users who consistently respond to Jokes with "that's what she said" forfeit their right to be taken seriously in any context for a period of no less than 72 hours. The Provider acknowledges that this particular form of humor peaked in 2007 and has been in steady decline ever since, much like flip phones and MySpace.</li>
+        <li>Users shall refrain from using these Jokes as substitutes for personality, emotional intimacy, or therapy. While humor can be a coping mechanism, it should not be the only tool in your psychological toolkit, much like how a hammer is useful but you wouldn't want it to be your only implement when attempting to prepare a five-course meal.</li>
+      </ul>
+      
+      <div class="easter-egg">If you're still reading at this point, you might want to consider a career in contract law, or perhaps you're just procrastinating on something important. Either way, we're impressed by your commitment to this utterly inconsequential document. Your attention to detail would be admirable if it were directed toward literally anything else.</div>
+    </div>
+
+    <div class="tos-section">
+      <h2>8. Morality Clause</h2>
+      <p>Provider commits to deploying humor with some vague degree of moral compass. While lines may be tiptoed, hopped over, or occasionally cartwheeled across, content is not intended to target vulnerable communities, spread hate, or summon ancient gods who have been peacefully slumbering in the depths of the ocean and would be quite cranky if awakened.</p>
+      <p>Should any Joke be perceived as irreparably offensive, the Provider will perform a ritual of self-reflection (approx. 0.6 seconds), then carry on with life—possibly wiser, possibly not. The Provider acknowledges that growth is a non-linear process with occasional backsliding, particularly when a really good joke opportunity presents itself.</p>
+      <p>The Provider acknowledges that humor evolves over time, and what was once considered acceptable comedy may later be recognized as problematic. The Provider reserves the right to grow, learn, and occasionally cringe at their past attempts at humor, much like you do when Facebook shows you "memories" from 2011 that make you question every life choice that led to that particular status update.</p>
+      <p>In the event that a Joke crosses a moral boundary, the Provider may issue a half-hearted apology consisting primarily of the phrases "if anyone was offended" and "that wasn't my intention," followed by absolutely no change in behavior whatsoever. The Provider acknowledges that this is not ideal but claims it is "authentic" and "on-brand."</p>
+      <p>The Provider maintains that comedy should "punch up" rather than "punch down," a principle that sounds noble but is conveniently flexible depending on one's perspective on the social hierarchy. The Provider reserves the right to determine what constitutes "up" and "down" based on whatever justification allows them to make the joke they really want to make.</p>
+    </div>
+
+    <div class="tos-section">
+      <h2>9. Intellectual Property Rights</h2>
+      <p>All Jokes, whether brilliant, mediocre, or groan-inducing, remain the intellectual property of the Provider, or whoever the Provider stole them from originally. The Provider makes no claims of originality, as humor is merely the recycling of human experience through the lens of absurdity, much like how all pop songs are just variations on the same four chords but with different hairstyles.</p>
+      <p>Users are granted a non-exclusive, non-transferable, revocable license to remember, retell, and repurpose these Jokes, provided that:</p>
+      <ul>
+        <li>When retelling a Joke that receives significant laughter, the User must mumble "I heard that somewhere" to avoid appearing more clever than they actually are. This maintains the cosmic balance of unearned credit and prevents the User from developing an inflated sense of their own wit.</li>
+        <li>When retelling a Joke that bombs catastrophically, the User must loudly proclaim "That's one of Kai's jokes" to properly attribute blame. The Provider accepts this burden as part of their comedic journey and appreciates the opportunity to learn from distant failures without having to be physically present for the awkward silence.</li>
+        <li>Any modifications, adaptations, or improvements to the original Jokes must be shared with the Provider so they can claim them as their own in future social gatherings. This is the comedy equivalent of open-source software, except with none of the ethical principles or community benefits.</li>
+        <li>In the event that a User's retelling of a Joke results in actual professional comedy opportunities, the Provider is entitled to 10% of all proceeds, payable in either legal tender or baked goods of equivalent value. This clause is entirely unenforceable but makes the Provider feel better about giving away content for free.</li>
+      </ul>
+      <p>The Provider acknowledges that all humor is derivative and probably dates back to some prehistoric cave painting that depicted a mammoth slipping on a banana peel. Originality in comedy, much like in literature, music, and cave painting, is largely an illusion maintained by our collective agreement to pretend we haven't heard that one before.</p>
+    </div>
+
+    <div class="tos-section">
+      <h2>10. Force Majeure</h2>
+      <p>The Provider shall not be held responsible for failure to deliver humor during acts of God, natural disasters, political upheavals, global pandemics, Mercury retrograde, or particularly bad hair days. Some events are simply beyond the scope of comedy, though the Provider acknowledges that historically, some of the best humor has emerged from the darkest times, proving that humans will find a way to laugh even when it seems least appropriate.</p>
+      <p>In the event of a zombie apocalypse, alien invasion, or the rise of sentient AI, all terms of this agreement shall be suspended, as survival will take precedence over comedy. However, the Provider reserves the right to make inappropriate jokes even during such calamities, as gallows humor is a recognized coping mechanism and may be one of the few things distinguishing humans from either zombies, aliens, or artificial intelligence, depending on which apocalyptic scenario unfolds.</p>
+      <p>The Provider's ability to be funny may be temporarily impaired by personal circumstances including but not limited to: heartbreak, existential crisis, hangovers, or binge-watching too many true crime documentaries in one sitting. During such periods, the quality of humor may decline precipitously, reverting to puns and references to outdated memes. Users are advised to lower their expectations accordingly.</p>
+      <p>The Provider cannot guarantee humor delivery in environments hostile to comedy, including but not limited to: extremely formal business meetings, religious services, during medical procedures, or while someone is trying to parallel park. Some contexts demand solemnity, and the Provider acknowledges that even the funniest joke in the world has its inappropriate venues.</p>
+    </div>
+
+    <div class="tos-section">
+      <h2>11. Termination</h2>
+      <p>This Agreement shall remain in effect until either:</p>
+      <ul>
+        <li>The User develops better taste in humor, at which point they will naturally gravitate away from the Provider's particular brand of comedy toward something more sophisticated, like puns in Latin or New Yorker cartoons that require an advanced degree to comprehend.</li>
+        <li>The Provider runs out of material and resorts to knock-knock jokes, at which point both parties agree it would be more merciful to end the relationship than to endure such comedic degradation.</li>
+        <li>The heat death of the universe renders all human endeavor, including comedy, meaningless. The Provider acknowledges that in the grand cosmic scale, all humor is temporary and ultimately inconsequential, but maintains that this makes it more precious rather than less valuable.</li>
+        <li>Either party blocks the other on social media, which in modern terms constitutes a complete severance of all human connection more final and irreversible than any legal document could hope to achieve.</li>
+        <li>The User sends the Provider a formal cease and desist letter written in crayon, which would be both legally unenforceable and aesthetically pleasing enough to earn the Provider's respect and compliance.</li>
+      </ul>
+      <p>Upon termination, the User shall cease all engagement with the Provider's Jokes and shall undertake a solemn vow to pretend they never found them funny in the first place. This revisionist history is a time-honored tradition in the dissolution of comedic relationships and shall be respected by all parties.</p>
+    </div>
+
+    <div class="tos-section">
+      <h2>12. Governing Law</h2>
+      <p>This Agreement shall be governed by the laws of common sense, basic human decency, and whatever mood the Provider happens to be in at the time of any dispute. The Provider acknowledges that all three of these governing principles are highly subjective and variable, making this essentially a legal document written in sand during high tide.</p>
+      <p>Any disagreements shall be settled by a dance-off, a pun contest, or trial by meme, at the Provider's discretion. The Provider reserves the right to choose whichever conflict resolution method most favors their particular skills, which is admittedly unfair but consistent with how most legal systems actually function beneath their veneer of impartiality.</p>
+      <p>The jurisdiction for all disputes arising from this Agreement shall be the Court of Public Opinion, where everyone's a judge and the sentence is always harsh. Appeals may be filed with the Supreme Court of "Let It Go Already," though the Provider notes that the backlog for cases in this court currently extends to infinity.</p>
+      <p>In the event that an actual legal dispute somehow arises from this obviously satirical document, both parties agree to take a long, hard look at their life choices and consider whether this is really the hill they want to die on. The Provider suggests that anyone considering legal action based on a joke terms of service might benefit from a hobby, a vacation, or perhaps a soothing cup of tea.</p>
+    </div>
+
+    <div class="tos-section">
+      <h2>13. Miscellaneous Provisions</h2>
+      <p><strong>Severability:</strong> If any provision of this Agreement is found to be unfunny, the remaining provisions shall continue in full force and effect, though they may be slightly less amusing by association. The Provider acknowledges that humor is rarely consistent, and even Shakespeare had that weird bear scene that nobody really knows what to do with.</p>
+      <p><strong>Entire Agreement:</strong> This document constitutes the entire understanding between the parties regarding Jokes and supersedes all prior agreements, understandings, or that one time the Provider tried to be funny at a funeral and everyone pretended not to hear it. Both parties agree to never speak of that incident again.</p>
+      <p><strong>Amendments:</strong> This Agreement may be amended at any time the Provider thinks of something funnier to add, with or without notice to the User. The Provider acknowledges that the funniest thoughts often occur at 3 AM or in the shower, when documentation is impractical, and therefore reserves the right to retroactively claim that such thoughts were always part of the original agreement.</p>
+      <p><strong>Waiver:</strong> The failure of the Provider to enforce any right or provision of this Agreement shall not constitute a waiver of such right or provision, nor shall it constitute an admission that their Joke wasn't absolutely hilarious. Sometimes the Provider is simply too lazy to argue the point, a condition commonly known as "comedy fatigue" or "not caring enough to die on this particular hill."</p>
+      <p><strong>Counterparts:</strong> This Agreement may be executed in numerous counterparts, each of which shall be deemed an original, but all of which together shall constitute one and the same instrument, mainly because the Provider can't be bothered to keep track of different versions and is just copying and pasting this clause from an actual legal document they found online.</p>
+    </div>
+
+    <div class="highlight-box">
+      <h3 style="color: var(--primary-color); margin-bottom: 10px;">Congratulations!</h3>
+      <p>If you've read this entire document, you've officially spent more time reading a joke legal document than most people spend reading their mortgage agreements, employment contracts, or the instruction manual for assembling furniture. Your dedication to thoroughly consuming pointless content is both impressive and slightly concerning. Perhaps consider redirecting this energy toward learning a new language, mastering sourdough bread baking, or finally organizing that drawer full of miscellaneous cables whose purposes you've long forgotten but which you can't bring yourself to throw away because "you never know when you might need that specific adapter for that device you no longer own."</p>
+      <p>In recognition of your extraordinary commitment to reading unnecessary text, you are hereby awarded the prestigious title of "Attorney General of Comedy" and granted the non-transferable right to say "Well, actually..." once per day without eye-rolls from those around you. Use this power wisely, as with great pedantry comes great responsibility.</p>
+    </div>
+    
+    <!-- Social Media Icons -->
+    <div id="socialIcons" class="social-icons-container">
+      <a href="https://x.com/kaiw_jp" class="social-icon" aria-label="Twitter/X">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18" />
+          <path d="M6 6L18 18" />
+        </svg>
+      </a>
+      <a href="https://note.com/kaiwasabi" class="social-icon" aria-label="Note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <polyline points="10 9 9 9 8 9" />
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/kwsb/" class="social-icon" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+      <a href="mailto:contact@kaiwatanabe.com" class="social-icon" aria-label="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-note">No goats were harmed during the making of these terms. If you made it this far, you're either a lawyer, dangerously bored, or have serious commitment issues with finishing things you start.</div>
+    <p>&copy; 2025 Kai Watanabe. All rights reserved.</p>
+  </footer>
+
+  <!-- Particles.js Library - load at end of body with defer -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
+  <script defer>
+    // Initialize particles after the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Full-page particles configuration - matching main site
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 30, /* Reduced for better performance */
+            "density": { "enable": true, "value_area": 800 }
+          },
+          "color": { 
+            "value": ["#f5f5f7", "#a1a1a6", "#d2d2d7"]
+          },
+          "shape": { 
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": { 
+            "value": 0.3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.3,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": { 
+            "value": 2,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.5,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#a1a1a6",
+            "opacity": 0.2,
+            "width": 1
+          },
+          "move": { 
+            "enable": true,
+            "speed": 0.8, /* Reduced for better performance */
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { 
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 0.4
+              }
+            },
+            "push": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
 </body>
 </html>
