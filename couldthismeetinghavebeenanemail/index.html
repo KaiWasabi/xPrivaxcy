@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meeting or Email? | Kai Watanabe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A humorous tool to assess whether your meeting could have been an email">
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Gradient Background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Kai Watanabe</div>
+      <ul>
+        <li><a href="https://www.kaiwatanabe.com" target="_self" class="nav-link">Home</a></li>
+        <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self" class="nav-link">AGLC</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="assessment-container">
+    <div class="assessment-header">
+      <h1>Could This Meeting Have Been an Email?</h1>
+      <p>The definitive assessment tool for the modern workplace</p>
+    </div>
+    
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text" id="progressText">Question 1 of 10</div>
+    
+    <form id="meetingAssessment">
+      <div class="question-container" data-question="1">
+        <div class="question">1. How many people are invited to this meeting?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q1a" name="q1" value="1">
+            <label for="q1a">Just 2-3 key people</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q1b" name="q1" value="2">
+            <label for="q1b">4-8 people who all need to contribute</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q1c" name="q1" value="3">
+            <label for="q1c">The entire department/team</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q1d" name="q1" value="4">
+            <label for="q1d">Half the company, including people who have no idea why they're invited</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="2" style="display: none;">
+        <div class="question">2. What's the primary purpose of this meeting?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q2a" name="q2" value="1">
+            <label for="q2a">To share information or make an announcement</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q2b" name="q2" value="2">
+            <label for="q2b">To gather feedback or opinions</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q2c" name="q2" value="3">
+            <label for="q2c">To brainstorm ideas or solve a complex problem</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q2d" name="q2" value="4">
+            <label for="q2d">To make a critical decision that affects multiple teams</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="3" style="display: none;">
+        <div class="question">3. How likely is it that this topic will generate debate or discussion?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q3a" name="q3" value="1">
+            <label for="q3a">Not at all - it's purely informational</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q3b" name="q3" value="2">
+            <label for="q3b">Minimal discussion expected</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q3c" name="q3" value="3">
+            <label for="q3c">Moderate discussion likely</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q3d" name="q3" value="4">
+            <label for="q3d">Heated debate guaranteed - prepare for chaos</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="4" style="display: none;">
+        <div class="question">4. Does the meeting organizer have a clear agenda?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q4a" name="q4" value="4">
+            <label for="q4a">Yes, with detailed topics, timing, and expected outcomes</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q4b" name="q4" value="3">
+            <label for="q4b">Yes, but it's fairly basic</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q4c" name="q4" value="2">
+            <label for="q4c">There's a vague one-line description</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q4d" name="q4" value="1">
+            <label for="q4d">What's an agenda?</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="5" style="display: none;">
+        <div class="question">5. How emotionally charged is the subject matter?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q5a" name="q5" value="1">
+            <label for="q5a">Not at all - purely factual and objective</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q5b" name="q5" value="2">
+            <label for="q5b">Slightly - some people might have opinions</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q5c" name="q5" value="3">
+            <label for="q5c">Moderately - people care about this topic</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q5d" name="q5" value="4">
+            <label for="q5d">Extremely - prepare for tears, shouting, or passive-aggressive silence</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="6" style="display: none;">
+        <div class="question">6. How many visual aids or demonstrations are needed?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q6a" name="q6" value="1">
+            <label for="q6a">None - it's all text that could be in an email</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q6b" name="q6" value="2">
+            <label for="q6b">A few simple charts or images</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q6c" name="q6" value="3">
+            <label for="q6c">A detailed presentation that needs explanation</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q6d" name="q6" value="4">
+            <label for="q6d">Live demonstrations or interactive elements</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="7" style="display: none;">
+        <div class="question">7. What's the real reason this meeting was called?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q7a" name="q7" value="1">
+            <label for="q7a">The organizer wants to feel important</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q7b" name="q7" value="2">
+            <label for="q7b">To create the illusion of productivity</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q7c" name="q7" value="3">
+            <label for="q7c">To genuinely collaborate on something important</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q7d" name="q7" value="4">
+            <label for="q7d">To address a critical issue that needs immediate attention</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="8" style="display: none;">
+        <div class="question">8. How many times has someone said "I'll circle back" in previous meetings on this topic?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q8a" name="q8" value="4">
+            <label for="q8a">Never - this is the first meeting</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q8b" name="q8" value="3">
+            <label for="q8b">Once or twice</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q8c" name="q8" value="2">
+            <label for="q8c">So many times it's become a drinking game</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q8d" name="q8" value="1">
+            <label for="q8d">We've been circling back for so long we're dizzy</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="9" style="display: none;">
+        <div class="question">9. How quickly do you need responses or decisions?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q9a" name="q9" value="1">
+            <label for="q9a">No rush - within a few days is fine</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q9b" name="q9" value="2">
+            <label for="q9b">By the end of the day</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q9c" name="q9" value="3">
+            <label for="q9c">Within the next few hours</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q9d" name="q9" value="4">
+            <label for="q9d">Immediately - the building is metaphorically on fire</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="question-container" data-question="10" style="display: none;">
+        <div class="question">10. Be honest: How many people will be secretly checking emails during this meeting?</div>
+        <div class="options">
+          <div class="option">
+            <input type="radio" id="q10a" name="q10" value="4">
+            <label for="q10a">None - everyone will be fully engaged</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q10b" name="q10" value="3">
+            <label for="q10b">Just a couple of the usual suspects</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q10c" name="q10" value="2">
+            <label for="q10c">At least half the attendees</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q10d" name="q10" value="1">
+            <label for="q10d">Everyone, including the person who called the meeting</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="navigation-buttons">
+        <button type="button" id="prevButton" class="nav-button" disabled>Previous</button>
+        <button type="button" id="nextButton" class="nav-button" disabled>Next</button>
+      </div>
+      
+      <button type="button" id="submitButton" class="submit-button" style="display: none;">Analyze My Meeting</button>
+    </form>
+    
+    <div id="resultEmail" class="result-container result-email" style="display: none;">
+      <div class="result-title">This Could Have Been an Email</div>
+      <div class="result-description">
+        <p>Save everyone's time and sanity by crafting a well-written email instead. Your colleagues will silently thank you by actually reading it, unlike the meeting where they'd be checking their emails anyway.</p>
+        <p>Pro tip: Use bullet points, keep it concise, and if you need responses, clearly mark action items and deadlines.</p>
+      </div>
+      <button type="button" class="reset-button" onclick="resetAssessment()">Try Another Meeting</button>
+    </div>
+    
+    <div id="resultDepends" class="result-container result-depends" style="display: none;">
+      <div class="result-title">Well, That Depends...</div>
+      <div class="result-description">
+        <p>This is in the gray area. Consider a hybrid approach: send a detailed email first, then hold an optional 15-minute meeting for questions and discussion.</p>
+        <p>Alternatively, use a collaborative document or chat thread that allows for asynchronous input while respecting everyone's time.</p>
+      </div>
+      <button type="button" class="reset-button" onclick="resetAssessment()">Try Another Meeting</button>
+    </div>
+    
+    <div id="resultMeeting" class="result-container result-meeting" style="display: none;">
+      <div class="result-title">Yes, This Needs to Be a Meeting</div>
+      <div class="result-description">
+        <p>Some things genuinely require real-time discussion and collaboration. But please, still send an agenda, keep it focused, and end early if possible.</p>
+        <p>Remember: A good meeting leaves everyone feeling their time was well spent, not wondering why they weren't just cc'd on an email.</p>
+      </div>
+      <button type="button" class="reset-button" onclick="resetAssessment()">Try Another Meeting</button>
+    </div>
+    
+    <!-- Social Media Icons -->
+    <div id="socialIcons" class="social-icons-container">
+      <a href="https://x.com/kaiw_jp" class="social-icon" aria-label="Twitter/X">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18" />
+          <path d="M6 6L18 18" />
+        </svg>
+      </a>
+      <a href="https://note.com/kaiwasabi" class="social-icon" aria-label="Note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <polyline points="10 9 9 9 8 9" />
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/kwsb/" class="social-icon" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+      <a href="mailto:contact@kaiwatanabe.com" class="social-icon" aria-label="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-note">No meetings were harmed in the making of this assessment. If you've actually used this to make a decision, we're both impressed and concerned.</div>
+    <p>&copy; 2025 Kai Watanabe. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
