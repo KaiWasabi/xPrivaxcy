@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/kaiwatanabe
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.kaiwatanabe.com
+  * I am kaiwatanabe (https://keybase.io/kaiwatanabe) on keybase.
+  * I have a public key ASCn4IuSRdEL7NdExNKtPWSvTzCbpmXdJ8gfcXN2B9sIaQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a7e08b9245d10becd744c4d2ad3d64af4f309ba665dd27c81f71737607db08690a",
+      "host": "keybase.io",
+      "kid": "0120a7e08b9245d10becd744c4d2ad3d64af4f309ba665dd27c81f71737607db08690a",
+      "uid": "d216a2470d9db9456140460af7943619",
+      "username": "kaiwatanabe"
+    },
+    "merkle_root": {
+      "ctime": 1746915733,
+      "hash": "a8dab038a8f98132ca96180a32747b6dabb8bf4cd4581f5576f052c7fc40932a0b8ff7c591d35f5c893ef8120107b8f9ad7893ca2e33008b6a9ed8210795d958",
+      "hash_meta": "825645784292b00aef018db0a0d66f08aea0e87b3aa6e0f3074138692e97e153",
+      "seqno": 26783189
+    },
+    "service": {
+      "entropy": "s3+BqlnIlqoW8lxukM/zsIA7",
+      "hostname": "www.kaiwatanabe.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.1"
+  },
+  "ctime": 1746915803,
+  "expire_in": 504576000,
+  "prev": "ec52cbbeab5adbecdf2957763e80c7dbfd098b14646ae3382b098ad4222d563d",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgp+CLkkXRC+zXRMTSrT1kr08wm6Zl3SfIH3FzdgfbCGkKp3BheWxvYWTESpcCCcQg7FLLvqta2+zfKVd2PoDH2/0JixRkauM4KwmK1CItVj3EIP7NmIofzTJUJw2Hw3f0PYG404rOIFG49bVomrQSJDBQAgHCo3NpZ8RAUR5Kw50J1KkBJax+oZruumB3GKZPg6ImRMYd4/2nH3E9cgrGdst7UQ/B0EshI1Wi5Moh55mcke9h6LMHgvQDBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBon0PDceeEPF/SvKYAM/XPTbzSLC0w10p2o6QcaO0Mdo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kaiwatanabe
+
+==================================================================
