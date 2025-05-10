@@ -11,6 +11,7 @@ const englishContent = {
       "Coursework for B.A. Criminal Justice, Pennsylvania State University, 2022 - 2023.",
     ],
     "Work History": [
+      "ANU Student's Association International Student Dept., Wellbeing Director, Dec. 2024 -  Present",
       "Office of The Hon. Kono Taro MP Policy Research Intern, Dec. 2024 - Present",
       "ANU Residential Mentor, Dec. 2024 - Present.",
       "The Australian National University Appeals Panel, Oct. 2024 - Present",
@@ -50,12 +51,13 @@ const japaneseContent = {
   sections: {
     学歴: ["法学士号、オーストラリア国立大学、2024年〜現在.", "刑事司法学、ペンシルバニア州立大学、2022年〜2023年"],
     職歴: [
+      "オーストラリア国立大学学生自治会、留学生担当課健康福祉長、2024年4月〜現在",
       "衆議院議員河野太郎事務所、政務リサーチインターン、2024年12月〜現在",
       "オーストラリア国立大学、学寮長補佐、2024年12月〜現在",
       "オーストラリア国立大学、懲罰控訴審議委員、2024年10月〜",
-      "豪州国立大日本クラブ、会長、2025年10月〜現在",
-      "豪州国立大日本クラブ、事務局長・書記官、2024年7月〜2024年10月",
-      "豪州国立大学生自治会、紛争審判委員、2024年4月〜現在",
+      "オーストラリア国立大学日本クラブ、会長、2025年10月〜現在",
+      "オーストラリア国立大学日本クラブ、事務局長・書記官、2024年7月〜2024年10月",
+      "オーストラリア国立大学学生自治会、紛争審判委員、2024年4月〜現在",
       "TEDxYouth@Canberra、マーケティングアソシエイト、2024年3月〜2024年10月",
       "ペンシルベニア州立大学、研究助手、2023年〜2024年",
     ],
