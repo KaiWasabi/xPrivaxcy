@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diet Records Search - Kai Watanabe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search Japanese National Diet records and parliamentary proceedings.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Gradient Background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-center">
+        <ul>
+          <li><a href="./index.html" target="_self" class="nav-link">Home</a></li>
+          <li><a href="./diet-records.html" target="_self" class="nav-link active">Diet Records</a></li>
+          <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self" class="nav-link">AGLC</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header id="pageHeader">
+    <h1 id="nameHeading">Diet Records Search</h1>
+    <div id="personalHeadline">
+      <div class="headline-container">
+        <div class="headline-text active">Search Japanese National Diet parliamentary records and proceedings</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Container -->
+  <main id="dietSearchContainer">
+    <!-- Search Form -->
+    <div class="search-form-container">
+      <form id="dietSearchForm" class="diet-search-form">
+        
+        <!-- Search Type Selection -->
+        <div class="form-group">
+          <label for="searchType">Search Type</label>
+          <select id="searchType" name="searchType" class="form-control">
+            <option value="meeting_list">Meeting List (Simple)</option>
+            <option value="speech">Individual Speeches</option>
+            <option value="meeting">Full Meeting Records</option>
+          </select>
+          <small class="form-help">Choose the type of search results you want</small>
+        </div>
+
+        <!-- Main Search Fields -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="searchKeyword">Search Keywords</label>
+            <input type="text" id="searchKeyword" name="any" class="form-control" placeholder="e.g., 科学技術, 教育">
+            <small class="form-help">Search within speech content (AND search for multiple terms)</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="speakerName">Speaker Name</label>
+            <input type="text" id="speakerName" name="speaker" class="form-control" placeholder="e.g., 田中, 鈴木">
+            <small class="form-help">Search by speaker name (OR search for multiple names)</small>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="meetingName">Meeting Name</label>
+            <input type="text" id="meetingName" name="nameOfMeeting" class="form-control" placeholder="e.g., 本会議, 委員会">
+            <small class="form-help">Search by meeting/committee name</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="houseName">House</label>
+            <select id="houseName" name="nameOfHouse" class="form-control">
+              <option value="">All Houses</option>
+              <option value="衆議院">House of Representatives (衆議院)</option>
+              <option value="参議院">House of Councillors (参議院)</option>
+              <option value="両院協議会">Joint Committee (両院協議会)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Date Range -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dateFrom">Date From</label>
+            <input type="date" id="dateFrom" name="from" class="form-control">
+          </div>
+          
+          <div class="form-group">
+            <label for="dateUntil">Date Until</label>
+            <input type="date" id="dateUntil" name="until" class="form-control">
+          </div>
+        </div>
+
+        <!-- Session Range -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sessionFrom">Session From</label>
+            <input type="number" id="sessionFrom" name="sessionFrom" class="form-control" min="1" max="999" placeholder="e.g., 200">
+            <small class="form-help">Diet session number (国会回次)</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="sessionTo">Session To</label>
+            <input type="number" id="sessionTo" name="sessionTo" class="form-control" min="1" max="999" placeholder="e.g., 210">
+          </div>
+        </div>
+
+        <!-- Advanced Options -->
+        <details class="advanced-options">
+          <summary>Advanced Options</summary>
+          <div class="advanced-content">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="speakerPosition">Speaker Position</label>
+                <input type="text" id="speakerPosition" name="speakerPosition" class="form-control" placeholder="e.g., 大臣, 委員長">
+              </div>
+              
+              <div class="form-group">
+                <label for="speakerGroup">Speaker Party/Group</label>
+                <input type="text" id="speakerGroup" name="speakerGroup" class="form-control" placeholder="e.g., 自由民主党">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="speakerRole">Speaker Role</label>
+                <select id="speakerRole" name="speakerRole" class="form-control">
+                  <option value="">Any Role</option>
+                  <option value="証人">Witness (証人)</option>
+                  <option value="参考人">Reference Person (参考人)</option>
+                  <option value="公述人">Public Speaker (公述人)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="maxRecords">Max Results</label>
+                <select id="maxRecords" name="maximumRecords" class="form-control">
+                  <option value="10">10 results</option>
+                  <option value="30" selected>30 results</option>
+                  <option value="50">50 results</option>
+                  <option value="100">100 results</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- AI Analysis Options -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="enableAI">Enable AI Analysis</label>
+                <select id="enableAI" name="enableAI" class="form-control">
+                  <option value="false">Disabled</option>
+                  <option value="true">Enable DeepSeek Analysis</option>
+                </select>
+                <small class="form-help">Automatically analyze and summarize speeches using DeepSeek AI</small>
+              </div>
+              
+              <div class="form-group">
+                <label for="analysisType">Analysis Type</label>
+                <select id="analysisType" name="analysisType" class="form-control">
+                  <option value="summary">Summary</option>
+                  <option value="sentiment">Sentiment Analysis</option>
+                  <option value="key_points">Key Points</option>
+                  <option value="full_analysis">Full Analysis</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- Search Button -->
+        <div class="form-actions">
+          <button type="submit" class="search-button" id="searchButton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            Search Diet Records
+          </button>
+          <button type="button" class="clear-button" id="clearButton">Clear Form</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+      <div class="loading-spinner"></div>
+      <p>Searching Diet records...</p>
+    </div>
+
+    <!-- AI Analysis Loading -->
+    <div id="aiLoadingIndicator" class="loading-indicator" style="display: none;">
+      <div class="loading-spinner"></div>
+      <p>Analyzing speeches with DeepSeek AI...</p>
+    </div>
+
+    <!-- Results Container -->
+    <div id="resultsContainer" class="results-container" style="display: none;">
+      <div class="results-header">
+        <h2 id="resultsTitle">Search Results</h2>
+        <div class="results-info">
+          <span id="resultsCount">0 results found</span>
+          <div class="results-pagination">
+            <button id="prevPage" class="pagination-btn" disabled>Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextPage" class="pagination-btn" disabled>Next</button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="resultsContent" class="results-content">
+        <!-- Results will be populated here -->
+      </div>
+    </div>
+
+    <!-- Error Container -->
+    <div id="errorContainer" class="error-container" style="display: none;">
+      <div class="error-content">
+        <h3>Search Error</h3>
+        <p id="errorMessage">An error occurred while searching.</p>
+        <button id="retryButton" class="retry-button">Try Again</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Kai Watanabe. All rights reserved. | Data provided by National Diet Library API</p>
+    <p style="font-size: 12px; margin-top: 8px;">Enhanced with DeepSeek AI for speech analysis</p>
+  </footer>
+
+  <!-- Diet Search Script -->
+  <script src="./diet-search-fixed.js" defer></script>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 20,
+            "density": { "enable": true, "value_area": 800 }
+          },
+          "color": { 
+            "value": ["#f5f5f7", "#a1a1a6", "#d2d2d7"]
+          },
+          "shape": { 
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": { 
+            "value": 0.2,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.3,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": { 
+            "value": 2,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 0.5,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#a1a1a6",
+            "opacity": 0.15,
+            "width": 1
+          },
+          "move": { 
+            "enable": true,
+            "speed": 0.6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { 
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 0.3
+              }
+            },
+            "push": {
+              "particles_nb": 1
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+</body>
+</html>
