@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redact-It — Secure Client-Side Photo Redactor</title>
+
+  <!-- Strict CSP compatible with GitHub Pages + Cloudflare (no inline JS/CSS) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), interest-cohort=()" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="toolbar" style="gap:10px">
+      <div class="group">
+        <input id="file" type="file" accept="image/*" />
+        <button class="btn" id="openBtn" title="Open image (O)">📂 Open</button>
+        <button class="btn" id="fitBtn" title="Fit to screen">Fit</button>
+        <span class="pill" id="imgInfo">No image</span>
+      </div>
+      <div class="group">
+        <span class="muted">Tool</span>
+        <button class="btn" data-tool="rect" title="R">▭ Rect</button>
+        <button class="btn" data-tool="ellipse" title="E">◯ Ellipse</button>
+        <button class="btn" data-tool="free" title="F">✎ Free</button>
+        <button class="btn" data-tool="poly" title="P">🔺 Poly</button>
+      </div>
+      <div class="group">
+        <span class="muted">Style</span>
+        <button class="btn" data-style="black" title="B">⬛ Black</button>
+        <button class="btn" data-style="mosaic" title="M">▦ Mosaic</button>
+        <button class="btn" data-style="blur" title="G">◐ Blur</button>
+        <span class="muted">Block</span><input id="mosaicSize" class="slider" type="range" min="4" max="80" value="24" />
+        <span class="muted">Blur</span><input id="blurRadius" class="slider" type="range" min="6" max="40" value="18" />
+        <span class="muted">Brush</span><input id="brush" class="slider" type="range" min="6" max="160" value="28" />
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div class="group">
+        <button class="btn" id="undoBtn" title="Undo (Ctrl/Cmd+Z)">↶ Undo</button>
+        <button class="btn" id="redoBtn" title="Redo (Ctrl/Cmd+Shift+Z)">↷ Redo</button>
+        <button class="btn" id="resetBtn" title="Reset to original">Reset</button>
+        <button class="btn danger" id="panicBtn" title="Self-destruct (Shift+Esc)">🧨 Self-Destruct</button>
+      </div>
+      <div class="group">
+        <span class="muted">Format</span>
+        <select id="format" class="btn">
+          <option value="image/png">PNG (lossless)</option>
+          <option value="image/jpeg">JPEG</option>
+          <option value="image/webp">WEBP</option>
+        </select>
+        <span class="muted">Quality</span>
+        <input id="quality" type="range" min="0.5" max="0.95" step="0.05" value="0.92" />
+        <button class="btn ok" id="saveBtn" title="Export flattened (S)">💾 Save</button>
+      </div>
+      <div class="muted">Shortcuts: O open · R/E/F/P tools · B/M/G styles · Ctrl/Cmd+Z/Y or Shift+Z · S save · Shift+Esc panic</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="stage" id="stage">
+    <div id="hint" class="muted" style="text-align:center;padding:24px;">
+      <h2 style="margin:0 0 8px;">Drop a photo here or click <u>Open</u></h2>
+      <div>All processing stays local. Exports are flattened & EXIF-free.</div>
+    </div>
+    <div id="canWrap" class="canvases" style="display:none">
+      <canvas id="base"></canvas>
+      <canvas id="overlay"></canvas>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <details class="adv">
+      <summary>Advanced</summary>
+      <div class="toolbar" style="margin-top:6px">
+        <div class="group">
+          <span class="muted">Mask expansion</span>
+          <input id="expand" class="slider" type="range" min="0" max="16" value="2" />
+          <span class="pill" id="expandVal">2 px</span>
+        </div>
+        <div class="group">
+          <span class="muted">Export scale</span>
+          <input id="scale" class="slider" type="range" min="50" max="200" value="100" />
+          <span class="pill" id="scaleVal">100%</span>
+        </div>
+        <div class="group">
+          <label><input id="autoFit" type="checkbox" checked /> Auto-fit on load</label>
+        </div>
+        <div class="group">
+          <label><input id="confirmPanic" type="checkbox" /> Confirm self-destruct</label>
+        </div>
+        <div class="group">
+          <label><input id="highAssurance" type="checkbox" checked /> High-assurance blur (≥18px + expand 2px)</label>
+        </div>
+      </div>
+    </details>
+  </div>
+</main>
+
+<footer>Built for privacy. Works offline. © 2025</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
