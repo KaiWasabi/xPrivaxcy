@@ -54,8 +54,8 @@ function buildAxesCache(w, h, lang){
 
   // labels
   ac.fillStyle = '#b9c7d8'; ac.font = '12px system-ui'; ac.textAlign='center';
-  ac.fillText(lang==='ja' ? '経済 左 (−)' : 'Economic Left (−)', 60, h/2 - 10);
-  ac.fillText(lang==='ja' ? '経済 右 (+)' : 'Economic Right (+)', w-70, h/2 - 10);
+  ac.fillText(lang==='ja' ? '公共介入重視（−）' : 'Economic Left (−)', 60, h/2 - 10);
+  ac.fillText(lang==='ja' ? '市場重視（＋）' : 'Economic Right (+)', w-70, h/2 - 10);
 
   ac.textAlign = 'left';
   ac.fillText(lang==='ja' ? '権威主義 (−)' : 'Authoritarian (−)', 6, 14);
@@ -425,8 +425,8 @@ if(downloadCardBtn) downloadCardBtn.onclick = ()=>{
   cc.textAlign='right';
   cc.fillText(isJA?'自由主義 (+)':'Libertarian (+)', S-8, S-8);
   cc.textAlign='center';
-  cc.fillText(isJA?'経済 左 (−)':'Economic Left (−)', 70, S/2 - 10);
-  cc.fillText(isJA?'経済 右 (+)':'Economic Right (+)', S-70, S/2 - 10);
+  cc.fillText(isJA?'公共介入重視（−）':'Economic Left (−)', 70, S/2 - 10);
+  cc.fillText(isJA?'市場重視（＋）':'Economic Right (+)', S-70, S/2 - 10);
   cc.fillStyle='#8898aa'; cc.beginPath(); cc.arc(S/2,S/2,3,0,Math.PI*2); cc.fill();
   if(!isNaN(x) && !isNaN(y)){
     const px = S/2 + (x/100)*(S/2);
