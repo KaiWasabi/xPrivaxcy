@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Kai Watanabe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal website of Kai Watanabe, law student skilled in legal research, digital transformation, and dispute resolution.">
-  
-  <!-- Preload critical assets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal website of Kai Watanabe, law student skilled in legal research, digital transformation, and dispute resolution." />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="./styles.css" as="style">
-  <link rel="preload" href="./icons.css" as="style">
   <link rel="preload" href="./script.js" as="script">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kai Watanabe",
+    "url": "https://www.kaiwatanabe.com",
+    "email": "mailto:hello@ext.kaiwatanabe.com",
+    "jobTitle": "Law student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Australian National University"
+    },
+    "sameAs": [
+      "https://x.com/kaiw_jp",
+      "https://www.linkedin.com/in/kwsb/",
+      "https://note.com/kaiwasabi"
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Gradient Background -->
   <div class="gradient-bg"></div>
-  
+
   <!-- Particles Background -->
-  <div id="particles-js"></div>
+  <div id="particles-js" aria-hidden="true"></div>
 
   <!-- Navigation Bar -->
-  <nav>
+  <nav role="navigation" aria-label="Primary">
     <div class="nav-container">
       <div class="nav-center">
         <ul>
-          <li><a href="https://www.kaiwatanabe.com" target="_self" class="nav-link active">Home</a></li>
-          <li><a href="https://www.kaiwatanabe.com/blog" target="_self" class="nav-link">Blog</a></li>
+          <li><a href="https://www.kaiwatanabe.com" target="_self" class="nav-link active" aria-current="page">Home</a></li>
+          <!-- No projects in nav per request -->
           <li><a href="https://www.kaiwatanabe.com/AGLC" target="_self" class="nav-link">AGLC</a></li>
         </ul>
       </div>
@@ -40,26 +61,26 @@
   <!-- Header: Name and Language Switch -->
   <header id="pageHeader">
     <h1 id="nameHeading">Kai Watanabe</h1>
-    
+
     <!-- Apple-style language switcher -->
-    <div id="languageSwitcher">
-      <button id="lang-en" aria-label="Switch to English">English</button>
-      <button id="lang-jp" aria-label="Switch to Japanese">日本語</button>
+    <div id="languageSwitcher" role="tablist" aria-label="Language selector">
+      <button id="lang-en" aria-label="Switch to English" role="tab" aria-selected="true">English</button>
+      <button id="lang-jp" aria-label="Switch to Japanese" role="tab" aria-selected="false">日本語</button>
     </div>
-    
+
     <!-- Headline section -->
     <div id="personalHeadline"></div>
-    
-    <!-- Social Media Icons - replaced with custom SVG implementation -->
-    <div id="socialIcons" class="social-icons-container">
+
+    <!-- Social Media Icons -->
+    <div id="socialIcons" class="social-icons-container" aria-label="Social links">
       <a href="https://x.com/kaiw_jp" class="social-icon" aria-label="Twitter/X">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M18 6L6 18" />
           <path d="M6 6L18 18" />
         </svg>
       </a>
       <a href="https://note.com/kaiwasabi" class="social-icon" aria-label="Note">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="16" y1="13" x2="8" y2="13" />
@@ -68,14 +89,14 @@
         </svg>
       </a>
       <a href="https://www.linkedin.com/in/kwsb/" class="social-icon" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
           <rect x="2" y="9" width="4" height="12" />
           <circle cx="4" cy="4" r="2" />
         </svg>
       </a>
       <a href="mailto:hello@ext.kaiwatanabe.com" class="social-icon" aria-label="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
           <polyline points="22,6 12,13 2,6" />
         </svg>
@@ -84,7 +105,7 @@
   </header>
 
   <!-- Main Resume Container -->
-  <main id="resumeContainer"></main>
+  <main id="resumeContainer" aria-live="polite"></main>
 
   <!-- Last Updated -->
   <p id="lastUpdated"></p>
@@ -94,92 +115,33 @@
     <p>© 2025 Kai Watanabe. All rights reserved.</p>
   </footer>
 
-  <!-- Main Script - defer loading -->
+  <noscript>
+    <div style="padding:16px;text-align:center;color:#fff;background:#1d1d1f">
+      JavaScript is required for interactive features on this site.
+    </div>
+  </noscript>
+
+  <!-- Main Script -->
   <script src="./script.js" defer></script>
 
-  <!-- Particles.js Library - load at end of body with defer -->
+  <!-- Particles.js Library -->
   <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
   <script defer>
-    // Initialize particles after the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // Full-page particles configuration
       particlesJS("particles-js", {
         "particles": {
-          "number": {
-            "value": 30, /* Reduced for better performance */
-            "density": { "enable": true, "value_area": 800 }
-          },
-          "color": { 
-            "value": ["#f5f5f7", "#a1a1a6", "#d2d2d7"]
-          },
-          "shape": { 
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
-            }
-          },
-          "opacity": { 
-            "value": 0.3,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 0.3,
-              "opacity_min": 0.1,
-              "sync": false
-            }
-          },
-          "size": { 
-            "value": 2,
-            "random": true,
-            "anim": {
-              "enable": true,
-              "speed": 0.5,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#a1a1a6",
-            "opacity": 0.2,
-            "width": 1
-          },
-          "move": { 
-            "enable": true,
-            "speed": 0.8, /* Reduced for better performance */
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false
-          }
+          "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": ["#f5f5f7", "#a1a1a6", "#d2d2d7"] },
+          "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+          "opacity": { "value": 0.3, "random": true, "anim": { "enable": true, "speed": 0.3, "opacity_min": 0.1, "sync": false } },
+          "size": { "value": 2, "random": true, "anim": { "enable": true, "speed": 0.5, "size_min": 0.1, "sync": false } },
+          "line_linked": { "enable": true, "distance": 150, "color": "#a1a1a6", "opacity": 0.2, "width": 1 },
+          "move": { "enable": true, "speed": 0.8, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
         },
         "interactivity": {
           "detect_on": "canvas",
-          "events": {
-            "onhover": { 
-              "enable": true,
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 140,
-              "line_linked": {
-                "opacity": 0.4
-              }
-            },
-            "push": {
-              "particles_nb": 2
-            }
-          }
+          "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+          "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.4 } }, "push": { "particles_nb": 2 } }
         },
         "retina_detect": true
       });
