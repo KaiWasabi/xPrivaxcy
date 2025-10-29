@@ -1,4 +1,3 @@
-// Resume and Projects content with localization
 const projects = {
   en: [
     { title: "AGLC Citation Helper", url: "https://github.com/kaiwatanabe-com/AGLC4-GEN", desc: "One‑click formatting for AGLC references." },
@@ -35,6 +34,7 @@ const englishContent = {
       id: "work-history",
       title: "Work History",
       data: [
+        "ANU Students' Association, International Student Dept., Deputy Officer, Dec 2025〜",
         "Japanese Ground Self-Defense Force, Reservist Candidate, Jun 2025 – Present",
         "ANU Students' Association, International Student Dept., Wellbeing Director, Dec 2024 – Present",
         "Office of The Hon. Kono Taro MP, Policy Research Intern, Dec 2024 – Present",
@@ -94,6 +94,7 @@ const japaneseContent = {
       id: "work-history",
       title: "職歴",
       data: [
+        "ANU学生自治会留学生支援部 次長(学生支援担当) 2025年12月〜",
         "陸上自衛隊、予備自衛官補、2025年6月～現在",
         "オーストラリア国立大学学生自治会 国際学生課 健康福祉長、2024年12月〜現在",
         "衆議院議員 河野太郎事務所、政務リサーチインターン、2024年12月〜現在",
